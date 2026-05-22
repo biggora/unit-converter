@@ -134,7 +134,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
  * scale.
  *
  * @example
- *   import { dataStorage } from 'unit-converter/data-storage';
+ *   import { dataStorage } from '@biggora/unit-converter/data-storage';
  *
  *   dataStorage(1, 'GiB').to('MiB');                 // 1024
  *   dataStorage.bigint(1n, 'TiB').to('B');           // 1099511627776n

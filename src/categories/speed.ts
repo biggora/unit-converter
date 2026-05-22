@@ -81,7 +81,7 @@ export const speedCategory: CategoryDef<'speed'> = {
  * Convert a speed value between any registered speed units.
  *
  * @example
- *   import { speed } from 'unit-converter/speed';
+ *   import { speed } from '@biggora/unit-converter/speed';
  *
  *   speed(100, 'km/h').to('mph');   // 62.1371...
  *   speed(1, 'mach').to('km/h');    // 1225.044

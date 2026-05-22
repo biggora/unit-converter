@@ -117,7 +117,7 @@ export const massCategory: CategoryDef<'mass'> = {
  * Convert a mass value between any registered mass units.
  *
  * @example
- *   import { mass } from 'unit-converter/mass';
+ *   import { mass } from '@biggora/unit-converter/mass';
  *
  *   mass(1, 'kg').to('lb');      // 2.20462...
  *   mass(150, 'g').to('best');   // { value: 150, unit: 'g', ... }

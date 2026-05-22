@@ -20,12 +20,11 @@
   --card-border: rgba(180, 170, 255, 0.18);
   --radius-lg: 24px;
   --radius-md: 14px;
-  --shadow-card: 0 30px 60px -20px rgba(0, 0, 0, 0.6),
-    0 0 0 1px var(--card-border) inset;
-  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  --font-mono: ui-monospace, 'JetBrains Mono', 'Fira Code', SFMono-Regular,
-    Menlo, Consolas, monospace;
+  --shadow-card: 0 30px 60px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--card-border) inset;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", SFMono-Regular, Menlo, Consolas,
+    monospace;
 }
 
 * {
@@ -58,14 +57,12 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(
+  background: radial-gradient(
       circle at 50% 120%,
       var(--space-2) 0%,
       var(--space-1) 30%,
       var(--space-0) 70%
-    ),
-    var(--space-0);
+    ), var(--space-0);
 }
 
 .nebula {
@@ -131,7 +128,7 @@ body {
 }
 
 .stars::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 1px;
   height: 1px;
@@ -405,8 +402,7 @@ code:not(.install) {
 .field input:focus,
 .field select:focus {
   border-color: var(--indigo);
-  box-shadow: 0 0 0 4px rgba(91, 107, 255, 0.2),
-    0 0 30px rgba(91, 107, 255, 0.3);
+  box-shadow: 0 0 0 4px rgba(91, 107, 255, 0.2), 0 0 30px rgba(91, 107, 255, 0.3);
 }
 
 .field select option {
@@ -472,11 +468,7 @@ code:not(.install) {
   align-items: center;
   gap: 0.4rem;
   padding: 1.6rem 1rem;
-  background: linear-gradient(
-    180deg,
-    rgba(91, 107, 255, 0.08),
-    rgba(217, 70, 239, 0.04)
-  );
+  background: linear-gradient(180deg, rgba(91, 107, 255, 0.08), rgba(217, 70, 239, 0.04));
   border-radius: var(--radius-md);
   border: 1px dashed var(--card-border);
   text-align: center;
@@ -488,8 +480,7 @@ code:not(.install) {
   font-weight: 500;
   letter-spacing: -0.02em;
   color: #fff;
-  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5),
-    0 0 60px rgba(91, 107, 255, 0.25);
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(91, 107, 255, 0.25);
   word-break: break-all;
 }
 
@@ -531,8 +522,7 @@ code:not(.install) {
   text-align: left;
   color: var(--text);
   font: inherit;
-  transition: border-color 150ms ease, transform 150ms ease,
-    box-shadow 150ms ease;
+  transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 
 .preset:hover {

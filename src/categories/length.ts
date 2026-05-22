@@ -151,7 +151,7 @@ export const lengthCategory: CategoryDef<'length'> = {
  * Convert a length value between any registered length units.
  *
  * @example
- *   import { length } from 'unit-converter/length';
+ *   import { length } from '@biggora/unit-converter/length';
  *
  *   length(5, 'm').to('ft');          // 16.4042
  *   length(5500, 'm').to('best');     // { value: 5.5, unit: 'km', ... }

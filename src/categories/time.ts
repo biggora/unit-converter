@@ -114,7 +114,7 @@ export const timeCategory: CategoryDef<'time'> = {
  * `time.bigint(20n, 'h').to('ms')`.
  *
  * @example
- *   import { time } from 'unit-converter/time';
+ *   import { time } from '@biggora/unit-converter/time';
  *
  *   time(2, 'h').to('s');            // 7200
  *   time.bigint(20n, 'h').to('ms');  // 72000000n  (exact)

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `unit-converter` are documented here. The format follows
+All notable changes to `@biggora/unit-converter` are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -10,7 +10,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Initial release covering the v0.1 MVP roadmap.
 - Chainable root API: `convert(value, from).to(target | 'best')`.
-- Per-category subpath exports (`unit-converter/length`, `…/mass`, …).
+- Per-category subpath exports (`@biggora/unit-converter/length`, `…/mass`, …).
 - 10 categories: `length`, `mass`, `time`, `temperature`, `volume`, `area`,
   `speed`, `dataStorage`, `angle`, `pressure`.
 - Exact BigInt arithmetic for `time` (ns…week) and `dataStorage` (byte-aligned).

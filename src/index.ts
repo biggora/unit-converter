@@ -6,15 +6,15 @@
  *
  * ```ts
  * // 1. Root convert — auto-routes by unit name.
- * import { convert } from 'unit-converter';
+ * import { convert } from '@biggora/unit-converter';
  * convert(5, 'm').to('ft');
  *
  * // 2. Per-category subpath — smallest bundle.
- * import { length } from 'unit-converter/length';
+ * import { length } from '@biggora/unit-converter/length';
  * length(5, 'm').to('ft');
  *
  * // 3. Named per-category exports from the root.
- * import { mass, time } from 'unit-converter';
+ * import { mass, time } from '@biggora/unit-converter';
  * ```
  *
  * @module

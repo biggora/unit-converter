@@ -115,7 +115,7 @@ export interface ConvertOptions {
  * @throws {IncompatibleUnitsError} when the subsequent `to()` targets a foreign category.
  *
  * @example
- *   import { convert } from 'unit-converter';
+ *   import { convert } from '@biggora/unit-converter';
  *
  *   convert(5, 'm').to('ft');           // 16.4042
  *   convert(0, 'C').to('F');            // 32

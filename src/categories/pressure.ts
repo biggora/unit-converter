@@ -119,7 +119,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
  * Convert a pressure value between any registered pressure units.
  *
  * @example
- *   import { pressure } from 'unit-converter/pressure';
+ *   import { pressure } from '@biggora/unit-converter/pressure';
  *
  *   pressure(1, 'atm').to('Pa');     // 101325
  *   pressure(14.6959, 'psi').to('atm'); // ≈ 1

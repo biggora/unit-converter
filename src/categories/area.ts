@@ -110,7 +110,7 @@ export const areaCategory: CategoryDef<'area'> = {
  * Convert an area value between any registered area units.
  *
  * @example
- *   import { area } from 'unit-converter/area';
+ *   import { area } from '@biggora/unit-converter/area';
  *
  *   area(1, 'ha').to('acre');   // 2.4710538...
  *   area(1, 'mi2').to('km2');   // 2.589988...

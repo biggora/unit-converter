@@ -1,3 +1,7 @@
+[![npm version](https://img.shields.io/npm/v/@biggora/unit-converter.svg)](https://www.npmjs.com/package/@biggora/unit-converter)
+[![Unit Tests](https://github.com/biggora/unit-converter/actions/workflows/ci.yml/badge.svg)](https://github.com/biggora/unit-converter/actions/workflows/unit-tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # unit-converter
 
 > Zero-dependency, cross-runtime TypeScript micro-library for unit conversion.
@@ -7,7 +11,7 @@
 **[Live demo →](https://biggora.github.io/unit-converter/)**
 
 ```ts
-import { convert } from 'unit-converter';
+import { convert } from '@biggora/unit-converter';
 
 convert(5, 'm').to('ft');              // 16.404199475065617
 convert(0, 'C', { category: 'temperature' }).to('F'); // 32
@@ -27,26 +31,26 @@ convert(20n, 'h').to('ms');            // 72000000n  (exact)
 ## Install
 
 ```bash
-npm i unit-converter
-pnpm add unit-converter
-bun add unit-converter
+npm i @biggora/unit-converter
+pnpm add @biggora/unit-converter
+bun add @biggora/unit-converter
 ```
 
-Deno can consume the npm package via [`jsr` interop](https://docs.deno.com/runtime/manual/node/npm_specifiers/) or `npm:unit-converter`.
+Deno can consume the npm package via [`jsr` interop](https://docs.deno.com/runtime/manual/node/npm_specifiers/) or `npm:@biggora/unit-converter`.
 
 ## API at a glance
 
 ```ts
 // 1. Root convert — auto-routes by unit name.
-import { convert } from 'unit-converter';
+import { convert } from '@biggora/unit-converter';
 convert(5, 'm').to('ft');
 
 // 2. Per-category subpath — smallest bundle (~3-4 KB gzipped each).
-import { length } from 'unit-converter/length';
+import { length } from '@biggora/unit-converter/length';
 length(5, 'm').to('ft');
 
 // 3. Named per-category exports from the root.
-import { mass, time } from 'unit-converter';
+import { mass, time } from '@biggora/unit-converter';
 ```
 
 Every chain returns a frozen `Converter`:
@@ -92,7 +96,7 @@ input unit's measurement system, so metric inputs stay metric unless you opt out
 ## BigInt mode
 
 ```ts
-import { time, dataStorage } from 'unit-converter';
+import { time, dataStorage } from '@biggora/unit-converter';
 
 time.bigint(20n, 'h').to('ms');          // 72_000_000n
 dataStorage.bigint(1n, 'TiB').to('B');   // 1_099_511_627_776n
@@ -131,7 +135,7 @@ artifact serves all three — no conditional code paths.
 ## Tree-shaking
 
 ```ts
-import { length } from 'unit-converter/length';
+import { length } from '@biggora/unit-converter/length';
 length(5, 'm').to('ft');
 // → bundle contains only length, not mass/time/etc.
 ```

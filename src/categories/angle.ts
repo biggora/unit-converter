@@ -77,7 +77,7 @@ export const angleCategory: CategoryDef<'angle'> = {
  * Convert a plane-angle value between any registered angle units.
  *
  * @example
- *   import { angle } from 'unit-converter/angle';
+ *   import { angle } from '@biggora/unit-converter/angle';
  *
  *   angle(180, 'deg').to('rad');     // Math.PI
  *   angle(1, 'turn').to('deg');      // 360

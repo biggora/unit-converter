@@ -74,7 +74,7 @@ export interface CategoryDef<Name extends string = string> {
  * Module-augmentable registry mapping category names → unit literal unions.
  *
  * @example
- *   declare module 'unit-converter' {
+ *   declare module '@biggora/unit-converter' {
  *     interface UnitRegistry {
  *       length: 'm' | 'km' | 'ft';
  *     }

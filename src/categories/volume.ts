@@ -173,7 +173,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
  * Convert a volume value between any registered volume units.
  *
  * @example
- *   import { volume } from 'unit-converter/volume';
+ *   import { volume } from '@biggora/unit-converter/volume';
  *
  *   volume(1, 'L').to('us-floz');    // 33.814...
  *   volume(1, 'us-gal').to('L');     // 3.7854...

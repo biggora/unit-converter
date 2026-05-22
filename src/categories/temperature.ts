@@ -64,7 +64,7 @@ export const temperatureCategory: CategoryDef<'temperature'> = {
  * Convert a temperature value between Kelvin, Celsius, Fahrenheit and Rankine.
  *
  * @example
- *   import { temperature } from 'unit-converter/temperature';
+ *   import { temperature } from '@biggora/unit-converter/temperature';
  *
  *   temperature(0, 'C').to('K');     // 273.15
  *   temperature(32, 'F').to('C');    // 0

@@ -33,8 +33,7 @@ const CATEGORIES = /** @type {const} */ ({
   pressure,
 });
 
-const $ = (/** @type {string} */ id) =>
-  /** @type {HTMLElement} */ (document.getElementById(id));
+const $ = (/** @type {string} */ id) => /** @type {HTMLElement} */ (document.getElementById(id));
 
 const categorySelect = /** @type {HTMLSelectElement} */ ($('category-select'));
 const fromSelect = /** @type {HTMLSelectElement} */ ($('from-select'));
@@ -179,9 +178,7 @@ function compute() {
 }
 
 categorySelect.addEventListener('change', () => {
-  populateUnitSelects(
-    /** @type {keyof typeof CATEGORIES} */ (categorySelect.value),
-  );
+  populateUnitSelects(/** @type {keyof typeof CATEGORIES} */ (categorySelect.value));
   compute();
 });
 for (const el of [fromSelect, toSelect, valueInput, bestToggle]) {
@@ -247,9 +244,7 @@ function makePreset(/** @type {(typeof presets)[number]} */ p) {
       btn.classList.remove('is-error');
     } catch (err) {
       outSpan.textContent =
-        err instanceof UnitConverterError
-          ? `${err.code} — ${err.message}`
-          : String(err);
+        err instanceof UnitConverterError ? `${err.code} — ${err.message}` : String(err);
       btn.classList.add('is-error');
     }
   }
