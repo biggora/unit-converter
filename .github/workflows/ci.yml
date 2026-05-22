@@ -55,7 +55,7 @@ jobs:
           bun-version: latest
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-      - run: bun test test/cross-runtime/node.mjs
+      - run: bun test test/cross-runtime/node.test.mjs
 
   test-deno:
     name: test (deno)
