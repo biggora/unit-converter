@@ -1,7 +1,6 @@
 // Cross-runtime smoke test under Deno.
 // Run with: `deno test --allow-read test/cross-runtime/deno.test.ts`
 import { assertAlmostEquals, assertEquals } from 'jsr:@std/assert';
-// @ts-expect-error - Deno resolves the npm-style relative path via node-compat.
 import { convert, length, time } from '../../dist/index.mjs';
 
 Deno.test('length: 5 m ≈ 16.4042 ft', () => {
