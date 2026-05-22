@@ -1,0 +1,14 @@
+{
+  "source": "NIST SP 811 Appendix B.9 (units accepted for use with SI)",
+  "url": "https://physics.nist.gov/cuu/pdf/sp811.pdf",
+  "revision": "2008",
+  "cases": [
+    { "from": "nmi", "to": "m", "value": 1, "expected": 1852, "exact": true },
+    { "from": "ha", "to": "m2", "value": 1, "expected": 10000, "exact": true },
+    { "from": "L", "to": "m3", "value": 1, "expected": 0.001, "exact": true },
+    { "from": "t", "to": "kg", "value": 1, "expected": 1000, "exact": true },
+    { "from": "min", "to": "s", "value": 1, "expected": 60, "exact": true },
+    { "from": "h", "to": "s", "value": 1, "expected": 3600, "exact": true },
+    { "from": "d", "to": "s", "value": 1, "expected": 86400, "exact": true }
+  ]
+}

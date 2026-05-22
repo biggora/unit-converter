@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+.DS_Store
+*.log
+.env
+.env.*
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.tsbuildinfo
+*.tgz
+/specs/
+/.claude/

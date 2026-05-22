@@ -1,0 +1,47 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm-publish
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Run high-severity audit
+        run: npm audit --audit-level=high
+
+      - name: Build package
+        run: npm run build
+
+      - name: Verify package contents
+        run: |
+          TAG_ARG=$(node -p "require('./package.json').version.includes('-') ? '--tag oidc-test' : ''")
+          npm publish --dry-run $TAG_ARG
+
+      - name: Publish package
+        run: |
+          TAG_ARG=$(node -p "require('./package.json').version.includes('-') ? '--tag oidc-test' : ''")
+          npm publish $TAG_ARG

@@ -1,0 +1,126 @@
+{
+  "name": "unit-converter",
+  "version": "0.1.0",
+  "description": "Zero-dependency, cross-runtime TypeScript micro-library for unit conversion.",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist", "README.md", "CHANGELOG.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./length": {
+      "types": "./dist/length.d.ts",
+      "import": "./dist/length.mjs",
+      "require": "./dist/length.cjs",
+      "default": "./dist/length.mjs"
+    },
+    "./mass": {
+      "types": "./dist/mass.d.ts",
+      "import": "./dist/mass.mjs",
+      "require": "./dist/mass.cjs",
+      "default": "./dist/mass.mjs"
+    },
+    "./time": {
+      "types": "./dist/time.d.ts",
+      "import": "./dist/time.mjs",
+      "require": "./dist/time.cjs",
+      "default": "./dist/time.mjs"
+    },
+    "./temperature": {
+      "types": "./dist/temperature.d.ts",
+      "import": "./dist/temperature.mjs",
+      "require": "./dist/temperature.cjs",
+      "default": "./dist/temperature.mjs"
+    },
+    "./volume": {
+      "types": "./dist/volume.d.ts",
+      "import": "./dist/volume.mjs",
+      "require": "./dist/volume.cjs",
+      "default": "./dist/volume.mjs"
+    },
+    "./area": {
+      "types": "./dist/area.d.ts",
+      "import": "./dist/area.mjs",
+      "require": "./dist/area.cjs",
+      "default": "./dist/area.mjs"
+    },
+    "./speed": {
+      "types": "./dist/speed.d.ts",
+      "import": "./dist/speed.mjs",
+      "require": "./dist/speed.cjs",
+      "default": "./dist/speed.mjs"
+    },
+    "./data-storage": {
+      "types": "./dist/data-storage.d.ts",
+      "import": "./dist/data-storage.mjs",
+      "require": "./dist/data-storage.cjs",
+      "default": "./dist/data-storage.mjs"
+    },
+    "./angle": {
+      "types": "./dist/angle.d.ts",
+      "import": "./dist/angle.mjs",
+      "require": "./dist/angle.cjs",
+      "default": "./dist/angle.mjs"
+    },
+    "./pressure": {
+      "types": "./dist/pressure.d.ts",
+      "import": "./dist/pressure.mjs",
+      "require": "./dist/pressure.cjs",
+      "default": "./dist/pressure.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:node": "node --test test/cross-runtime/node.mjs",
+    "test:bun": "bun test test/cross-runtime/node.mjs",
+    "test:deno": "deno test --allow-read test/cross-runtime/deno.test.ts",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "check:exports": "attw --pack . && publint",
+    "size": "tsx scripts/check-size.ts",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.0",
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.10",
+    "@types/node": "^22.10.2",
+    "publint": "^0.3.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "keywords": [
+    "unit",
+    "convert",
+    "conversion",
+    "measurement",
+    "si",
+    "metric",
+    "imperial",
+    "zero-dependency",
+    "typescript",
+    "cross-runtime"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biggora/unit-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/biggora/unit-converter/issues"
+  },
+  "homepage": "https://github.com/biggora/unit-converter#readme"
+}

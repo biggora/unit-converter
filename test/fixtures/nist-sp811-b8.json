@@ -1,0 +1,26 @@
+{
+  "source": "NIST SP 811 Appendix B.8 (boldface = exact)",
+  "url": "https://physics.nist.gov/cuu/pdf/sp811.pdf",
+  "revision": "2008",
+  "cases": [
+    { "from": "in", "to": "m", "value": 1, "expected": 0.0254, "exact": true },
+    { "from": "ft", "to": "m", "value": 1, "expected": 0.3048, "exact": true },
+    { "from": "yd", "to": "m", "value": 1, "expected": 0.9144, "exact": true },
+    { "from": "mi", "to": "m", "value": 1, "expected": 1609.344, "exact": true },
+    { "from": "lb", "to": "kg", "value": 1, "expected": 0.45359237, "exact": true },
+    { "from": "oz", "to": "kg", "value": 1, "expected": 0.028349523125, "exact": true },
+    { "from": "gr", "to": "kg", "value": 1, "expected": 0.00006479891, "exact": true },
+    { "from": "us-gal", "to": "m3", "value": 1, "expected": 0.003785411784, "exact": true },
+    { "from": "in3", "to": "m3", "value": 1, "expected": 0.000016387064, "exact": true },
+    { "from": "ft3", "to": "m3", "value": 1, "expected": 0.028316846592, "exact": true },
+    { "from": "yd3", "to": "m3", "value": 1, "expected": 0.764554857984, "exact": true },
+    { "from": "in2", "to": "m2", "value": 1, "expected": 0.00064516, "exact": true },
+    { "from": "ft2", "to": "m2", "value": 1, "expected": 0.09290304, "exact": true },
+    { "from": "yd2", "to": "m2", "value": 1, "expected": 0.83612736, "exact": true },
+    { "from": "mi2", "to": "m2", "value": 1, "expected": 2589988.110336, "exact": true },
+    { "from": "atm", "to": "Pa", "value": 1, "expected": 101325, "exact": true },
+    { "from": "ft/s", "to": "m/s", "value": 1, "expected": 0.3048, "exact": true },
+    { "from": "in/s", "to": "m/s", "value": 1, "expected": 0.0254, "exact": true },
+    { "from": "mph", "to": "m/s", "value": 1, "expected": 0.44704, "exact": true }
+  ]
+}
