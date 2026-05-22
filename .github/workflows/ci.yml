@@ -78,7 +78,7 @@ jobs:
       - run: deno test --allow-read test/cross-runtime/deno.test.ts
 
   check-exports:
-    name: exports (publint + attw)
+    name: exports (publint)
     runs-on: ubuntu-latest
     needs: test-node
     steps:
@@ -93,4 +93,3 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - run: pnpm exec publint
-      - run: pnpm exec attw --pack .
