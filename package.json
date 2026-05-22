@@ -107,7 +107,7 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "vitest": "^4.1.7"
   },
   "keywords": [
     "unit",
@@ -124,6 +124,12 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": ">=0.25.0",
+      "vite": ">=6.4.2"
+    }
   },
   "repository": {
     "type": "git",
