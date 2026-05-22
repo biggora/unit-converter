@@ -4,6 +4,8 @@
 > Type-safe chained API, exact BigInt arithmetic where it matters, NIST-pinned
 > coefficients.
 
+**[Live demo →](https://biggora.github.io/unit-converter/)**
+
 ```ts
 import { convert } from 'unit-converter';
 

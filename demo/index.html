@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>unit-converter — interactive playground</title>
+    <meta
+      name="description"
+      content="Zero-dependency, cross-runtime TypeScript micro-library for unit conversion. Try it live."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="galaxy" aria-hidden="true">
+      <div class="nebula nebula-a"></div>
+      <div class="nebula nebula-b"></div>
+      <div class="stars stars-near"></div>
+      <div class="stars stars-far"></div>
+    </div>
+
+    <header class="hero">
+      <p class="eyebrow">npm · zero-dependency · cross-runtime</p>
+      <h1>
+        <span class="title-grad">unit-converter</span>
+      </h1>
+      <p class="tagline">
+        Type-safe conversions across 10 categories. Exact BigInt arithmetic
+        where it matters. NIST-pinned coefficients.
+      </p>
+      <code class="install"
+        ><span class="prompt">$</span> npm i unit-converter</code
+      >
+    </header>
+
+    <main>
+      <section class="card playground" aria-labelledby="playground-title">
+        <div class="card-glow"></div>
+        <header class="card-head">
+          <h2 id="playground-title">Playground</h2>
+          <label class="toggle">
+            <input type="checkbox" id="best-toggle" />
+            <span class="toggle-slot"><span class="toggle-knob"></span></span>
+            <span class="toggle-label">Best mode</span>
+          </label>
+        </header>
+
+        <div class="grid">
+          <div class="field field-category">
+            <label for="category-select">Category</label>
+            <select id="category-select"></select>
+          </div>
+
+          <div class="field field-value">
+            <label for="value-input">Value</label>
+            <input
+              id="value-input"
+              type="number"
+              inputmode="decimal"
+              step="any"
+              value="5"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field field-from">
+            <label for="from-select">From</label>
+            <select id="from-select"></select>
+          </div>
+
+          <div class="field field-arrow" aria-hidden="true">→</div>
+
+          <div class="field field-to">
+            <label for="to-select">To</label>
+            <select id="to-select"></select>
+          </div>
+        </div>
+
+        <output class="result" id="result" aria-live="polite">
+          <div class="result-number" id="result-number">—</div>
+          <div class="result-unit" id="result-unit"></div>
+          <div class="result-meta" id="result-meta"></div>
+        </output>
+      </section>
+
+      <section class="card bigint" aria-labelledby="bigint-title">
+        <header class="card-head">
+          <h2 id="bigint-title">BigInt mode</h2>
+          <span class="badge">exact integer arithmetic</span>
+        </header>
+        <p class="muted">
+          Integer-aligned categories (<code>time</code>,
+          <code>dataStorage</code>) accept <code>bigint</code> inputs and refuse
+          to silently truncate.
+        </p>
+        <div class="presets" id="bigint-presets"></div>
+      </section>
+
+      <section class="card errors" aria-labelledby="errors-title">
+        <header class="card-head">
+          <h2 id="errors-title">Error model</h2>
+          <span class="badge">six classes, stable codes</span>
+        </header>
+        <p class="muted">
+          Every failure inherits <code>UnitConverterError</code>. Click a button
+          to fire a deliberate bad call and inspect the thrown instance.
+        </p>
+        <div class="error-buttons" id="error-buttons"></div>
+        <pre class="error-output" id="error-output" aria-live="polite">
+Click an error scenario above.</pre
+        >
+      </section>
+    </main>
+
+    <footer>
+      <a
+        class="link"
+        href="https://github.com/biggora/unit-converter"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub</a
+      >
+      <span class="dot">·</span>
+      <a
+        class="link"
+        href="https://www.npmjs.com/package/unit-converter"
+        target="_blank"
+        rel="noopener noreferrer"
+        >npm</a
+      >
+      <span class="dot">·</span>
+      <span class="muted">MIT · v0.1.0</span>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
