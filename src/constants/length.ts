@@ -4,12 +4,33 @@
  * Each `<UNIT>_TO_METER` constant is the multiplicative factor that converts a
  * magnitude in `<UNIT>` to metres: `meters = value * <UNIT>_TO_METER`.
  *
+ * Each bare `<UNIT>` constant is the string identifier the converter accepts
+ * (`length(5, METER).to(FOOT)`).
+ *
  * Imperial factors are NIST SP 811 §B.8 boldface (exact). Astronomical factors
  * follow IAU 2012 nominal conversions.
  *
  * @module
  */
 
+// — Unit identifiers —
+export const METER = 'm' as const;
+export const KILOMETER = 'km' as const;
+export const CENTIMETER = 'cm' as const;
+export const MILLIMETER = 'mm' as const;
+export const MICROMETER = 'μm' as const;
+export const NANOMETER = 'nm' as const;
+export const ANGSTROM = 'Å' as const;
+export const INCH = 'in' as const;
+export const FOOT = 'ft' as const;
+export const YARD = 'yd' as const;
+export const MILE = 'mi' as const;
+export const NAUTICAL_MILE = 'nmi' as const;
+export const LIGHT_YEAR = 'ly' as const;
+export const ASTRONOMICAL_UNIT = 'au' as const;
+export const PARSEC = 'pc' as const;
+
+// — Conversion factors —
 export const METER_TO_METER = 1;
 export const KILOMETER_TO_METER = 1_000;
 export const CENTIMETER_TO_METER = 0.01;

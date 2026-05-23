@@ -15,6 +15,19 @@
  * @module
  */
 
+// — Unit identifiers —
+export const NANOSECOND = 'ns' as const;
+export const MICROSECOND = 'μs' as const;
+export const MILLISECOND = 'ms' as const;
+export const SECOND = 's' as const;
+export const MINUTE = 'min' as const;
+export const HOUR = 'h' as const;
+export const DAY = 'd' as const;
+export const WEEK = 'week' as const;
+export const MONTH = 'month' as const;
+export const YEAR = 'year' as const;
+
+// — Conversion factors —
 export const NANOSECOND_TO_SECOND = 1e-9;
 export const NANOSECOND_TO_NANOSECOND_BIGINT = 1n;
 

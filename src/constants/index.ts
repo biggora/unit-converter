@@ -11,6 +11,7 @@
  * @module
  */
 
+export * from './categories.js';
 export * from './length.js';
 export * from './mass.js';
 export * from './time.js';

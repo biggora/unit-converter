@@ -18,12 +18,17 @@
  */
 
 import {
+  TEMPERATURE,
+  CELSIUS,
   CELSIUS_TO_KELVIN_OFFSET,
   CELSIUS_TO_KELVIN_RATIO,
+  FAHRENHEIT,
   FAHRENHEIT_TO_KELVIN_OFFSET,
   FAHRENHEIT_TO_KELVIN_RATIO,
+  KELVIN,
   KELVIN_TO_KELVIN_OFFSET,
   KELVIN_TO_KELVIN_RATIO,
+  RANKINE,
   RANKINE_TO_KELVIN_OFFSET,
   RANKINE_TO_KELVIN_RATIO,
 } from '../constants';
@@ -33,11 +38,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/temperature.js';
 
 /** @internal */
-export const temperatureCategory: CategoryDef<'temperature'> = {
-  name: 'temperature',
-  anchor: 'K',
+export const temperatureCategory: CategoryDef<typeof TEMPERATURE> = {
+  name: TEMPERATURE,
+  anchor: KELVIN,
   units: {
-    K: {
+    [KELVIN]: {
       ratio: KELVIN_TO_KELVIN_RATIO,
       offset: KELVIN_TO_KELVIN_OFFSET,
       name: 'kelvin',
@@ -46,7 +51,7 @@ export const temperatureCategory: CategoryDef<'temperature'> = {
       system: 'metric',
       aliases: ['kelvin', 'kelvins'],
     },
-    C: {
+    [CELSIUS]: {
       ratio: CELSIUS_TO_KELVIN_RATIO,
       offset: CELSIUS_TO_KELVIN_OFFSET,
       name: 'celsius',
@@ -55,7 +60,7 @@ export const temperatureCategory: CategoryDef<'temperature'> = {
       system: 'metric',
       aliases: ['celsius', '°c', 'degc', '°C'],
     },
-    F: {
+    [FAHRENHEIT]: {
       ratio: FAHRENHEIT_TO_KELVIN_RATIO,
       offset: FAHRENHEIT_TO_KELVIN_OFFSET,
       name: 'fahrenheit',
@@ -64,7 +69,7 @@ export const temperatureCategory: CategoryDef<'temperature'> = {
       system: 'imperial',
       aliases: ['fahrenheit', '°f', 'degf', '°F'],
     },
-    R: {
+    [RANKINE]: {
       ratio: RANKINE_TO_KELVIN_RATIO,
       offset: RANKINE_TO_KELVIN_OFFSET,
       name: 'rankine',

@@ -14,27 +14,40 @@
  */
 
 import {
+  DATA_STORAGE,
+  BIT,
   BIT_TO_BYTE,
+  BYTE,
   BYTE_TO_BYTE,
   BYTE_TO_BYTE_BIGINT,
+  GIBIBYTE,
   GIBIBYTE_TO_BYTE,
   GIBIBYTE_TO_BYTE_BIGINT,
+  GIGABYTE,
   GIGABYTE_TO_BYTE,
   GIGABYTE_TO_BYTE_BIGINT,
+  KIBIBYTE,
   KIBIBYTE_TO_BYTE,
   KIBIBYTE_TO_BYTE_BIGINT,
+  KILOBYTE,
   KILOBYTE_TO_BYTE,
   KILOBYTE_TO_BYTE_BIGINT,
+  MEBIBYTE,
   MEBIBYTE_TO_BYTE,
   MEBIBYTE_TO_BYTE_BIGINT,
+  MEGABYTE,
   MEGABYTE_TO_BYTE,
   MEGABYTE_TO_BYTE_BIGINT,
+  PEBIBYTE,
   PEBIBYTE_TO_BYTE,
   PEBIBYTE_TO_BYTE_BIGINT,
+  PETABYTE,
   PETABYTE_TO_BYTE,
   PETABYTE_TO_BYTE_BIGINT,
+  TEBIBYTE,
   TEBIBYTE_TO_BYTE,
   TEBIBYTE_TO_BYTE_BIGINT,
+  TERABYTE,
   TERABYTE_TO_BYTE,
   TERABYTE_TO_BYTE_BIGINT,
 } from '../constants';
@@ -44,11 +57,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/data-storage.js';
 
 /** @internal */
-export const dataStorageCategory: CategoryDef<'dataStorage'> = {
-  name: 'dataStorage',
-  anchor: 'B',
+export const dataStorageCategory: CategoryDef<typeof DATA_STORAGE> = {
+  name: DATA_STORAGE,
+  anchor: BYTE,
   units: {
-    B: {
+    [BYTE]: {
       ratio: BYTE_TO_BYTE,
       bigintRatio: BYTE_TO_BYTE_BIGINT,
       name: 'byte',
@@ -57,7 +70,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['byte', 'bytes'],
     },
-    KB: {
+    [KILOBYTE]: {
       ratio: KILOBYTE_TO_BYTE,
       bigintRatio: KILOBYTE_TO_BYTE_BIGINT,
       name: 'kilobyte',
@@ -66,7 +79,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['kb', 'kilobyte', 'kilobytes'],
     },
-    MB: {
+    [MEGABYTE]: {
       ratio: MEGABYTE_TO_BYTE,
       bigintRatio: MEGABYTE_TO_BYTE_BIGINT,
       name: 'megabyte',
@@ -75,7 +88,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['mb', 'megabyte', 'megabytes'],
     },
-    GB: {
+    [GIGABYTE]: {
       ratio: GIGABYTE_TO_BYTE,
       bigintRatio: GIGABYTE_TO_BYTE_BIGINT,
       name: 'gigabyte',
@@ -84,7 +97,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['gb', 'gigabyte', 'gigabytes'],
     },
-    TB: {
+    [TERABYTE]: {
       ratio: TERABYTE_TO_BYTE,
       bigintRatio: TERABYTE_TO_BYTE_BIGINT,
       name: 'terabyte',
@@ -93,7 +106,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['tb', 'terabyte', 'terabytes'],
     },
-    PB: {
+    [PETABYTE]: {
       ratio: PETABYTE_TO_BYTE,
       bigintRatio: PETABYTE_TO_BYTE_BIGINT,
       name: 'petabyte',
@@ -102,7 +115,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['pb', 'petabyte', 'petabytes'],
     },
-    KiB: {
+    [KIBIBYTE]: {
       ratio: KIBIBYTE_TO_BYTE,
       bigintRatio: KIBIBYTE_TO_BYTE_BIGINT,
       name: 'kibibyte',
@@ -111,7 +124,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['kib', 'kibibyte', 'kibibytes'],
     },
-    MiB: {
+    [MEBIBYTE]: {
       ratio: MEBIBYTE_TO_BYTE,
       bigintRatio: MEBIBYTE_TO_BYTE_BIGINT,
       name: 'mebibyte',
@@ -120,7 +133,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['mib', 'mebibyte', 'mebibytes'],
     },
-    GiB: {
+    [GIBIBYTE]: {
       ratio: GIBIBYTE_TO_BYTE,
       bigintRatio: GIBIBYTE_TO_BYTE_BIGINT,
       name: 'gibibyte',
@@ -129,7 +142,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['gib', 'gibibyte', 'gibibytes'],
     },
-    TiB: {
+    [TEBIBYTE]: {
       ratio: TEBIBYTE_TO_BYTE,
       bigintRatio: TEBIBYTE_TO_BYTE_BIGINT,
       name: 'tebibyte',
@@ -138,7 +151,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['tib', 'tebibyte', 'tebibytes'],
     },
-    PiB: {
+    [PEBIBYTE]: {
       ratio: PEBIBYTE_TO_BYTE,
       bigintRatio: PEBIBYTE_TO_BYTE_BIGINT,
       name: 'pebibyte',
@@ -147,7 +160,7 @@ export const dataStorageCategory: CategoryDef<'dataStorage'> = {
       system: 'metric',
       aliases: ['pib', 'pebibyte', 'pebibytes'],
     },
-    bit: {
+    [BIT]: {
       ratio: BIT_TO_BYTE,
       name: 'bit',
       plural: 'bits',

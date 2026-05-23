@@ -6,6 +6,17 @@
  * @module
  */
 
+// — Unit identifiers —
+export const METER_PER_SECOND = 'm/s' as const;
+export const KILOMETER_PER_HOUR = 'km/h' as const;
+export const MILE_PER_HOUR = 'mph' as const;
+export const KNOT = 'kn' as const;
+export const FOOT_PER_SECOND = 'ft/s' as const;
+export const INCH_PER_SECOND = 'in/s' as const;
+export const MACH = 'mach' as const;
+export const SPEED_OF_LIGHT = 'c' as const;
+
+// — Conversion factors —
 export const METER_PER_SECOND_TO_METER_PER_SECOND = 1;
 /** 1000 / 3600 = 5/18. */
 export const KILOMETER_PER_HOUR_TO_METER_PER_SECOND = 1 / 3.6;

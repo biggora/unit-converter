@@ -8,17 +8,29 @@
  */
 
 import {
+  ACRE,
   ACRE_TO_SQUARE_METER,
+  ARE,
   ARE_TO_SQUARE_METER,
+  HECTARE,
   HECTARE_TO_SQUARE_METER,
+  SQUARE_CENTIMETER,
   SQUARE_CENTIMETER_TO_SQUARE_METER,
+  SQUARE_FOOT,
   SQUARE_FOOT_TO_SQUARE_METER,
+  SQUARE_INCH,
   SQUARE_INCH_TO_SQUARE_METER,
+  SQUARE_KILOMETER,
   SQUARE_KILOMETER_TO_SQUARE_METER,
+  SQUARE_METER,
   SQUARE_METER_TO_SQUARE_METER,
+  SQUARE_MILE,
   SQUARE_MILE_TO_SQUARE_METER,
+  SQUARE_MILLIMETER,
   SQUARE_MILLIMETER_TO_SQUARE_METER,
+  SQUARE_YARD,
   SQUARE_YARD_TO_SQUARE_METER,
+  AREA,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
@@ -26,11 +38,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/area.js';
 
 /** @internal */
-export const areaCategory: CategoryDef<'area'> = {
-  name: 'area',
-  anchor: 'm2',
+export const areaCategory: CategoryDef<typeof AREA> = {
+  name: AREA,
+  anchor: SQUARE_METER,
   units: {
-    m2: {
+    [SQUARE_METER]: {
       ratio: SQUARE_METER_TO_SQUARE_METER,
       name: 'square meter',
       plural: 'square meters',
@@ -38,7 +50,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'metric',
       aliases: ['sqm', 'squaremeter', 'm^2', 'm²'],
     },
-    cm2: {
+    [SQUARE_CENTIMETER]: {
       ratio: SQUARE_CENTIMETER_TO_SQUARE_METER,
       name: 'square centimeter',
       plural: 'square centimeters',
@@ -46,7 +58,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'metric',
       aliases: ['sqcm', 'cm^2', 'cm²'],
     },
-    mm2: {
+    [SQUARE_MILLIMETER]: {
       ratio: SQUARE_MILLIMETER_TO_SQUARE_METER,
       name: 'square millimeter',
       plural: 'square millimeters',
@@ -54,7 +66,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'metric',
       aliases: ['sqmm', 'mm^2', 'mm²'],
     },
-    km2: {
+    [SQUARE_KILOMETER]: {
       ratio: SQUARE_KILOMETER_TO_SQUARE_METER,
       name: 'square kilometer',
       plural: 'square kilometers',
@@ -62,7 +74,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'metric',
       aliases: ['sqkm', 'km^2', 'km²'],
     },
-    ha: {
+    [HECTARE]: {
       ratio: HECTARE_TO_SQUARE_METER,
       name: 'hectare',
       plural: 'hectares',
@@ -70,7 +82,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'metric',
       aliases: ['hectare', 'hectares'],
     },
-    a: {
+    [ARE]: {
       ratio: ARE_TO_SQUARE_METER,
       name: 'are',
       plural: 'ares',
@@ -78,7 +90,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'metric',
       aliases: ['are', 'ares'],
     },
-    in2: {
+    [SQUARE_INCH]: {
       ratio: SQUARE_INCH_TO_SQUARE_METER,
       name: 'square inch',
       plural: 'square inches',
@@ -86,7 +98,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'imperial',
       aliases: ['sqin', 'in^2', 'in²'],
     },
-    ft2: {
+    [SQUARE_FOOT]: {
       ratio: SQUARE_FOOT_TO_SQUARE_METER,
       name: 'square foot',
       plural: 'square feet',
@@ -94,7 +106,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'imperial',
       aliases: ['sqft', 'ft^2', 'ft²'],
     },
-    yd2: {
+    [SQUARE_YARD]: {
       ratio: SQUARE_YARD_TO_SQUARE_METER,
       name: 'square yard',
       plural: 'square yards',
@@ -102,7 +114,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'imperial',
       aliases: ['sqyd', 'yd^2', 'yd²'],
     },
-    mi2: {
+    [SQUARE_MILE]: {
       ratio: SQUARE_MILE_TO_SQUARE_METER,
       name: 'square mile',
       plural: 'square miles',
@@ -110,7 +122,7 @@ export const areaCategory: CategoryDef<'area'> = {
       system: 'imperial',
       aliases: ['sqmi', 'mi^2', 'mi²'],
     },
-    acre: {
+    [ACRE]: {
       ratio: ACRE_TO_SQUARE_METER,
       name: 'acre',
       plural: 'acres',

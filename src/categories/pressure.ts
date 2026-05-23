@@ -8,18 +8,31 @@
  * @module
  */
 
+import { PRESSURE } from '../constants';
 import {
+  ATMOSPHERE,
   ATMOSPHERE_TO_PASCAL,
+  BAR,
   BAR_TO_PASCAL,
+  GIGAPASCAL,
   GIGAPASCAL_TO_PASCAL,
+  HECTOPASCAL,
   HECTOPASCAL_TO_PASCAL,
+  INCH_OF_MERCURY,
   INCH_OF_MERCURY_TO_PASCAL,
+  KILOPASCAL,
   KILOPASCAL_TO_PASCAL,
+  MEGAPASCAL,
   MEGAPASCAL_TO_PASCAL,
+  MILLIBAR,
   MILLIBAR_TO_PASCAL,
+  MILLIMETER_OF_MERCURY,
   MILLIMETER_OF_MERCURY_TO_PASCAL,
+  PASCAL,
   PASCAL_TO_PASCAL,
+  PSI,
   PSI_TO_PASCAL,
+  TORR,
   TORR_TO_PASCAL,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
@@ -28,11 +41,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/pressure.js';
 
 /** @internal */
-export const pressureCategory: CategoryDef<'pressure'> = {
-  name: 'pressure',
-  anchor: 'Pa',
+export const pressureCategory: CategoryDef<typeof PRESSURE> = {
+  name: PRESSURE,
+  anchor: PASCAL,
   units: {
-    Pa: {
+    [PASCAL]: {
       ratio: PASCAL_TO_PASCAL,
       name: 'pascal',
       plural: 'pascals',
@@ -40,7 +53,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['pascal', 'pascals'],
     },
-    hPa: {
+    [HECTOPASCAL]: {
       ratio: HECTOPASCAL_TO_PASCAL,
       name: 'hectopascal',
       plural: 'hectopascals',
@@ -48,7 +61,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['hectopascal', 'hectopascals'],
     },
-    kPa: {
+    [KILOPASCAL]: {
       ratio: KILOPASCAL_TO_PASCAL,
       name: 'kilopascal',
       plural: 'kilopascals',
@@ -56,7 +69,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['kilopascal', 'kilopascals'],
     },
-    MPa: {
+    [MEGAPASCAL]: {
       ratio: MEGAPASCAL_TO_PASCAL,
       name: 'megapascal',
       plural: 'megapascals',
@@ -64,7 +77,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['megapascal', 'megapascals'],
     },
-    GPa: {
+    [GIGAPASCAL]: {
       ratio: GIGAPASCAL_TO_PASCAL,
       name: 'gigapascal',
       plural: 'gigapascals',
@@ -72,7 +85,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['gigapascal', 'gigapascals'],
     },
-    bar: {
+    [BAR]: {
       ratio: BAR_TO_PASCAL,
       name: 'bar',
       plural: 'bar',
@@ -80,7 +93,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['bars'],
     },
-    mbar: {
+    [MILLIBAR]: {
       ratio: MILLIBAR_TO_PASCAL,
       name: 'millibar',
       plural: 'millibar',
@@ -88,7 +101,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['millibar', 'millibars'],
     },
-    atm: {
+    [ATMOSPHERE]: {
       ratio: ATMOSPHERE_TO_PASCAL,
       name: 'standard atmosphere',
       plural: 'atmospheres',
@@ -96,7 +109,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['atmosphere', 'atmospheres'],
     },
-    torr: {
+    [TORR]: {
       ratio: TORR_TO_PASCAL,
       name: 'torr',
       plural: 'torr',
@@ -104,7 +117,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['Torr'],
     },
-    mmHg: {
+    [MILLIMETER_OF_MERCURY]: {
       ratio: MILLIMETER_OF_MERCURY_TO_PASCAL,
       name: 'millimeter of mercury',
       plural: 'millimeters of mercury',
@@ -112,7 +125,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'metric',
       aliases: ['mmhg'],
     },
-    inHg: {
+    [INCH_OF_MERCURY]: {
       ratio: INCH_OF_MERCURY_TO_PASCAL,
       name: 'inch of mercury',
       plural: 'inches of mercury',
@@ -120,7 +133,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       system: 'imperial',
       aliases: ['inhg'],
     },
-    psi: {
+    [PSI]: {
       ratio: PSI_TO_PASCAL,
       name: 'pound-force per square inch',
       plural: 'pound-force per square inch',

@@ -26,6 +26,8 @@ export {
   type ExportedCategory,
   type ExportedRegistry,
   type ExportedUnit,
+  type ExportFormat,
+  type ExportOptions,
   exportRegistry,
 } from './core/exporter.js';
 
@@ -57,13 +59,14 @@ export {
   UnknownUnitError,
 } from './core/errors.js';
 
-export { angle } from './categories/angle.js';
-export { area } from './categories/area.js';
-export { dataStorage } from './categories/data-storage.js';
-export { length } from './categories/length.js';
-export { mass } from './categories/mass.js';
-export { pressure } from './categories/pressure.js';
-export { speed } from './categories/speed.js';
-export { temperature } from './categories/temperature.js';
-export { time } from './categories/time.js';
-export { volume } from './categories/volume.js';
+export * from './categories/angle.js';
+export * from './categories/area.js';
+export * from './categories/data-storage.js';
+export * from './categories/length.js';
+export * from './categories/mass.js';
+export * from './categories/pressure.js';
+export * from './categories/speed.js';
+export * from './categories/temperature.js';
+export * from './categories/time.js';
+export * from './categories/volume.js';
+export * from './constants/categories.js';

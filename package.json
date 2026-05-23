@@ -1,6 +1,6 @@
 {
   "name": "@biggora/unit-converter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Zero-dependency, cross-runtime TypeScript micro-library for unit conversion.",
   "type": "module",
   "sideEffects": false,

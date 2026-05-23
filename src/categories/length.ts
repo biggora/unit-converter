@@ -8,20 +8,36 @@
  */
 
 import {
+  LENGTH,
+  ANGSTROM,
   ANGSTROM_TO_METER,
+  ASTRONOMICAL_UNIT,
   ASTRONOMICAL_UNIT_TO_METER,
+  CENTIMETER,
   CENTIMETER_TO_METER,
+  FOOT,
   FOOT_TO_METER,
+  INCH,
   INCH_TO_METER,
+  KILOMETER,
   KILOMETER_TO_METER,
+  LIGHT_YEAR,
   LIGHT_YEAR_TO_METER,
+  METER,
   METER_TO_METER,
+  MICROMETER,
   MICROMETER_TO_METER,
+  MILE,
   MILE_TO_METER,
+  MILLIMETER,
   MILLIMETER_TO_METER,
+  NANOMETER,
   NANOMETER_TO_METER,
+  NAUTICAL_MILE,
   NAUTICAL_MILE_TO_METER,
+  PARSEC,
   PARSEC_TO_METER,
+  YARD,
   YARD_TO_METER,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
@@ -35,11 +51,11 @@ export * from '../constants/length.js';
  *
  * @internal
  */
-export const lengthCategory: CategoryDef<'length'> = {
-  name: 'length',
-  anchor: 'm',
+export const lengthCategory: CategoryDef<typeof LENGTH> = {
+  name: LENGTH,
+  anchor: METER,
   units: {
-    m: {
+    [METER]: {
       ratio: METER_TO_METER,
       name: 'meter',
       plural: 'meters',
@@ -47,7 +63,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['meter', 'metre', 'metres', 'meters'],
     },
-    km: {
+    [KILOMETER]: {
       ratio: KILOMETER_TO_METER,
       name: 'kilometer',
       plural: 'kilometers',
@@ -55,7 +71,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['kilometre', 'kilometres', 'kilometers'],
     },
-    cm: {
+    [CENTIMETER]: {
       ratio: CENTIMETER_TO_METER,
       name: 'centimeter',
       plural: 'centimeters',
@@ -63,7 +79,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['centimetre', 'centimetres'],
     },
-    mm: {
+    [MILLIMETER]: {
       ratio: MILLIMETER_TO_METER,
       name: 'millimeter',
       plural: 'millimeters',
@@ -71,7 +87,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['millimetre', 'millimetres'],
     },
-    μm: {
+    [MICROMETER]: {
       ratio: MICROMETER_TO_METER,
       name: 'micrometer',
       plural: 'micrometers',
@@ -79,7 +95,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['um', 'micrometre', 'micrometres', 'micron', 'microns'],
     },
-    nm: {
+    [NANOMETER]: {
       ratio: NANOMETER_TO_METER,
       name: 'nanometer',
       plural: 'nanometers',
@@ -87,7 +103,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['nanometre', 'nanometres'],
     },
-    Å: {
+    [ANGSTROM]: {
       ratio: ANGSTROM_TO_METER,
       name: 'angstrom',
       plural: 'angstroms',
@@ -95,7 +111,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['angstrom', 'angstroms', 'a'],
     },
-    in: {
+    [INCH]: {
       ratio: INCH_TO_METER,
       name: 'inch',
       plural: 'inches',
@@ -103,7 +119,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'imperial',
       aliases: ['inch', 'inches', '"'],
     },
-    ft: {
+    [FOOT]: {
       ratio: FOOT_TO_METER,
       name: 'foot',
       plural: 'feet',
@@ -111,7 +127,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'imperial',
       aliases: ['foot', 'feet', "'"],
     },
-    yd: {
+    [YARD]: {
       ratio: YARD_TO_METER,
       name: 'yard',
       plural: 'yards',
@@ -119,7 +135,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'imperial',
       aliases: ['yard', 'yards'],
     },
-    mi: {
+    [MILE]: {
       ratio: MILE_TO_METER,
       name: 'mile',
       plural: 'miles',
@@ -127,7 +143,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'imperial',
       aliases: ['mile', 'miles'],
     },
-    nmi: {
+    [NAUTICAL_MILE]: {
       ratio: NAUTICAL_MILE_TO_METER,
       name: 'nautical mile',
       plural: 'nautical miles',
@@ -135,7 +151,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'imperial',
       aliases: ['nauticalmile', 'nauticalmiles'],
     },
-    ly: {
+    [LIGHT_YEAR]: {
       ratio: LIGHT_YEAR_TO_METER,
       name: 'light-year',
       plural: 'light-years',
@@ -143,7 +159,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['lightyear', 'lightyears'],
     },
-    au: {
+    [ASTRONOMICAL_UNIT]: {
       ratio: ASTRONOMICAL_UNIT_TO_METER,
       name: 'astronomical unit',
       plural: 'astronomical units',
@@ -151,7 +167,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       system: 'metric',
       aliases: ['ua'],
     },
-    pc: {
+    [PARSEC]: {
       ratio: PARSEC_TO_METER,
       name: 'parsec',
       plural: 'parsecs',

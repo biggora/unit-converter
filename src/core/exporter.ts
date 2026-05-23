@@ -1,21 +1,16 @@
 /**
- * Registry export — a single function that dumps every registered category,
- * anchor, unit and conversion factor into a plain-data object.
+ * Registry export — dumps every registered category, anchor, unit and
+ * conversion factor in one of several formats.
  *
- * The shape is JSON-serializable as-is: `bigint` values are returned as strings
- * with a trailing `'n'` suffix (e.g. `"1024n"`) so `JSON.stringify` never
- * throws. Consumers that want native BigInt back can parse them via
- * `BigInt(value.slice(0, -1))`.
+ *   exportRegistry()                       // → ExportedRegistry (plain object)
+ *   exportRegistry({ format: 'json' })     // → JSON string
+ *   exportRegistry({ format: 'markdown' }) // → Markdown tables
+ *   exportRegistry({ format: 'csv' })      // → flat CSV
  *
- * @example
- *   import { exportRegistry } from '@biggora/unit-converter';
- *
- *   const data = exportRegistry();
- *   data.categories[0].name;       // 'length'
- *   data.categories[0].anchor;     // 'm'
- *   data.categories[0].units[0];   // { key: 'm', ratio: 1, ... }
- *
- *   await writeFile('registry.json', JSON.stringify(data, null, 2));
+ * The default `'object'` form is JSON-serializable as-is: `bigint` values are
+ * encoded as decimal strings with a trailing `'n'` suffix (e.g. `"1024n"`) so
+ * `JSON.stringify` never throws. Consumers that want native BigInt back can
+ * parse them via `BigInt(value.slice(0, -1))`.
  *
  * @module
  */
@@ -66,6 +61,22 @@ export interface ExportedRegistry {
   readonly categories: readonly ExportedCategory[];
 }
 
+/**
+ * Output shape for {@link exportRegistry}.
+ *
+ * - `'object'` (default): typed JS object — best for programmatic use.
+ * - `'json'`: JSON-encoded string.
+ * - `'markdown'`: GitHub-flavored Markdown — one `##` section + table per category.
+ * - `'csv'`: flat RFC-4180 table — one row per unit, header included.
+ */
+export type ExportFormat = 'object' | 'json' | 'markdown' | 'csv';
+
+export interface ExportOptions {
+  readonly format?: ExportFormat;
+  /** Pretty-print indent for JSON. Defaults to `2`. */
+  readonly indent?: number;
+}
+
 const ALL_CATEGORIES: readonly CategoryDef[] = [
   lengthCategory,
   massCategory,
@@ -79,13 +90,7 @@ const ALL_CATEGORIES: readonly CategoryDef[] = [
   pressureCategory,
 ];
 
-/**
- * Dump every registered category / unit / factor into a plain-data object.
- *
- * The result is deterministic across calls (key order matches insertion order
- * of the category definitions) and JSON-serializable without custom replacers.
- */
-export function exportRegistry(): ExportedRegistry {
+function buildRegistry(): ExportedRegistry {
   return {
     categories: ALL_CATEGORIES.map((cat) => ({
       name: cat.name as Category,
@@ -108,4 +113,99 @@ export function exportRegistry(): ExportedRegistry {
       }),
     })),
   };
+}
+
+function toJson(reg: ExportedRegistry, indent: number): string {
+  return JSON.stringify(reg, null, indent);
+}
+
+function toMarkdown(reg: ExportedRegistry): string {
+  const HEADER = '| Key | Name | Symbol | System | Ratio | Offset | BigInt Ratio | Aliases |';
+  const ALIGN = '| --- | --- | --- | --- | ---: | ---: | ---: | --- |';
+
+  const lines: string[] = ['# Unit Registry', ''];
+  for (const cat of reg.categories) {
+    lines.push(`## ${cat.name} (anchor: \`${cat.anchor}\`)`, '', HEADER, ALIGN);
+    for (const u of cat.units) {
+      lines.push(
+        `| \`${u.key}\` | ${u.name} | ${u.symbol ?? ''} | ${u.system ?? ''} | ${u.ratio} | ${
+          u.offset ?? ''
+        } | ${u.bigintRatio ?? ''} | ${u.aliases.join(', ')} |`,
+      );
+    }
+    lines.push('');
+  }
+  return lines.join('\n');
+}
+
+function csvEscape(value: string): string {
+  if (/[",\r\n]/.test(value)) {
+    return `"${value.replace(/"/g, '""')}"`;
+  }
+  return value;
+}
+
+function toCsv(reg: ExportedRegistry): string {
+  const HEADERS = [
+    'category',
+    'anchor',
+    'key',
+    'name',
+    'plural',
+    'symbol',
+    'system',
+    'ratio',
+    'offset',
+    'bigintRatio',
+    'aliases',
+  ];
+  const rows: string[] = [HEADERS.join(',')];
+  for (const cat of reg.categories) {
+    for (const u of cat.units) {
+      const row = [
+        cat.name,
+        cat.anchor,
+        u.key,
+        u.name,
+        u.plural ?? '',
+        u.symbol ?? '',
+        u.system ?? '',
+        String(u.ratio),
+        u.offset === undefined ? '' : String(u.offset),
+        u.bigintRatio ?? '',
+        u.aliases.join('|'),
+      ].map(csvEscape);
+      rows.push(row.join(','));
+    }
+  }
+  return rows.join('\n');
+}
+
+/**
+ * Dump every registered category / unit / factor.
+ *
+ * @example
+ *   exportRegistry();                       // ExportedRegistry
+ *   exportRegistry({ format: 'json' });     // string
+ *   exportRegistry({ format: 'markdown' }); // string
+ *   exportRegistry({ format: 'csv' });      // string
+ */
+export function exportRegistry(): ExportedRegistry;
+export function exportRegistry(opts: ExportOptions & { format?: 'object' }): ExportedRegistry;
+export function exportRegistry(opts: ExportOptions & { format: 'json' }): string;
+export function exportRegistry(opts: ExportOptions & { format: 'markdown' }): string;
+export function exportRegistry(opts: ExportOptions & { format: 'csv' }): string;
+export function exportRegistry(opts: ExportOptions = {}): ExportedRegistry | string {
+  const reg = buildRegistry();
+  const format = opts.format ?? 'object';
+  switch (format) {
+    case 'object':
+      return reg;
+    case 'json':
+      return toJson(reg, opts.indent ?? 2);
+    case 'markdown':
+      return toMarkdown(reg);
+    case 'csv':
+      return toCsv(reg);
+  }
 }

@@ -10,6 +10,21 @@
  * @module
  */
 
+// — Unit identifiers —
+export const PASCAL = 'Pa' as const;
+export const HECTOPASCAL = 'hPa' as const;
+export const KILOPASCAL = 'kPa' as const;
+export const MEGAPASCAL = 'MPa' as const;
+export const GIGAPASCAL = 'GPa' as const;
+export const BAR = 'bar' as const;
+export const MILLIBAR = 'mbar' as const;
+export const ATMOSPHERE = 'atm' as const;
+export const TORR = 'torr' as const;
+export const MILLIMETER_OF_MERCURY = 'mmHg' as const;
+export const INCH_OF_MERCURY = 'inHg' as const;
+export const PSI = 'psi' as const;
+
+// — Conversion factors —
 export const PASCAL_TO_PASCAL = 1;
 export const HECTOPASCAL_TO_PASCAL = 100;
 export const KILOPASCAL_TO_PASCAL = 1_000;

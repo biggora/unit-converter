@@ -9,6 +9,28 @@
  * @module
  */
 
+// — Unit identifiers —
+export const CUBIC_METER = 'm3' as const;
+export const LITER = 'L' as const;
+export const MILLILITER = 'mL' as const;
+export const CUBIC_CENTIMETER = 'cm3' as const;
+export const CUBIC_MILLIMETER = 'mm3' as const;
+export const CUBIC_KILOMETER = 'km3' as const;
+export const US_GALLON = 'us-gal' as const;
+export const US_QUART = 'us-qt' as const;
+export const US_PINT = 'us-pt' as const;
+export const US_CUP = 'us-cup' as const;
+export const US_FLUID_OUNCE = 'us-floz' as const;
+export const US_TABLESPOON = 'us-tbsp' as const;
+export const US_TEASPOON = 'us-tsp' as const;
+export const IMPERIAL_GALLON = 'imp-gal' as const;
+export const IMPERIAL_PINT = 'imp-pt' as const;
+export const IMPERIAL_FLUID_OUNCE = 'imp-floz' as const;
+export const CUBIC_INCH = 'in3' as const;
+export const CUBIC_FOOT = 'ft3' as const;
+export const CUBIC_YARD = 'yd3' as const;
+
+// — Conversion factors —
 export const CUBIC_METER_TO_CUBIC_METER = 1;
 export const LITER_TO_CUBIC_METER = 1e-3;
 export const MILLILITER_TO_CUBIC_METER = 1e-6;

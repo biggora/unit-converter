@@ -13,6 +13,13 @@
  * @module
  */
 
+// — Unit identifiers —
+export const KELVIN = 'K' as const;
+export const CELSIUS = 'C' as const;
+export const FAHRENHEIT = 'F' as const;
+export const RANKINE = 'R' as const;
+
+// — Conversion factors —
 export const KELVIN_TO_KELVIN_RATIO = 1;
 export const KELVIN_TO_KELVIN_OFFSET = 0;
 

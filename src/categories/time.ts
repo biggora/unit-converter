@@ -12,23 +12,34 @@
  */
 
 import {
+  TIME,
+  DAY,
   DAY_TO_NANOSECOND_BIGINT,
   DAY_TO_SECOND,
+  HOUR,
   HOUR_TO_NANOSECOND_BIGINT,
   HOUR_TO_SECOND,
+  MICROSECOND,
   MICROSECOND_TO_NANOSECOND_BIGINT,
   MICROSECOND_TO_SECOND,
+  MILLISECOND,
   MILLISECOND_TO_NANOSECOND_BIGINT,
   MILLISECOND_TO_SECOND,
+  MINUTE,
   MINUTE_TO_NANOSECOND_BIGINT,
   MINUTE_TO_SECOND,
+  MONTH,
   MONTH_TO_SECOND,
+  NANOSECOND,
   NANOSECOND_TO_NANOSECOND_BIGINT,
   NANOSECOND_TO_SECOND,
+  SECOND,
   SECOND_TO_NANOSECOND_BIGINT,
   SECOND_TO_SECOND,
+  WEEK,
   WEEK_TO_NANOSECOND_BIGINT,
   WEEK_TO_SECOND,
+  YEAR,
   YEAR_TO_SECOND,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
@@ -37,11 +48,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/time.js';
 
 /** @internal */
-export const timeCategory: CategoryDef<'time'> = {
-  name: 'time',
-  anchor: 's',
+export const timeCategory: CategoryDef<typeof TIME> = {
+  name: TIME,
+  anchor: SECOND,
   units: {
-    ns: {
+    [NANOSECOND]: {
       ratio: NANOSECOND_TO_SECOND,
       bigintRatio: NANOSECOND_TO_NANOSECOND_BIGINT,
       name: 'nanosecond',
@@ -50,7 +61,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['nanosecond', 'nanoseconds'],
     },
-    μs: {
+    [MICROSECOND]: {
       ratio: MICROSECOND_TO_SECOND,
       bigintRatio: MICROSECOND_TO_NANOSECOND_BIGINT,
       name: 'microsecond',
@@ -59,7 +70,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['us', 'microsecond', 'microseconds'],
     },
-    ms: {
+    [MILLISECOND]: {
       ratio: MILLISECOND_TO_SECOND,
       bigintRatio: MILLISECOND_TO_NANOSECOND_BIGINT,
       name: 'millisecond',
@@ -68,7 +79,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['millisecond', 'milliseconds'],
     },
-    s: {
+    [SECOND]: {
       ratio: SECOND_TO_SECOND,
       bigintRatio: SECOND_TO_NANOSECOND_BIGINT,
       name: 'second',
@@ -77,7 +88,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['sec', 'secs', 'second', 'seconds'],
     },
-    min: {
+    [MINUTE]: {
       ratio: MINUTE_TO_SECOND,
       bigintRatio: MINUTE_TO_NANOSECOND_BIGINT,
       name: 'minute',
@@ -86,7 +97,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['minute', 'minutes'],
     },
-    h: {
+    [HOUR]: {
       ratio: HOUR_TO_SECOND,
       bigintRatio: HOUR_TO_NANOSECOND_BIGINT,
       name: 'hour',
@@ -95,7 +106,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['hr', 'hrs', 'hour', 'hours'],
     },
-    d: {
+    [DAY]: {
       ratio: DAY_TO_SECOND,
       bigintRatio: DAY_TO_NANOSECOND_BIGINT,
       name: 'day',
@@ -104,7 +115,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['day', 'days'],
     },
-    week: {
+    [WEEK]: {
       ratio: WEEK_TO_SECOND,
       bigintRatio: WEEK_TO_NANOSECOND_BIGINT,
       name: 'week',
@@ -113,7 +124,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['wk', 'weeks'],
     },
-    month: {
+    [MONTH]: {
       ratio: MONTH_TO_SECOND,
       name: 'month',
       plural: 'months',
@@ -121,7 +132,7 @@ export const timeCategory: CategoryDef<'time'> = {
       system: 'metric',
       aliases: ['mo', 'months'],
     },
-    year: {
+    [YEAR]: {
       ratio: YEAR_TO_SECOND,
       name: 'year',
       plural: 'years',

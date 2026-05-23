@@ -9,6 +9,20 @@
  * @module
  */
 
+// — Unit identifiers —
+export const SQUARE_METER = 'm2' as const;
+export const SQUARE_CENTIMETER = 'cm2' as const;
+export const SQUARE_MILLIMETER = 'mm2' as const;
+export const SQUARE_KILOMETER = 'km2' as const;
+export const HECTARE = 'ha' as const;
+export const ARE = 'a' as const;
+export const SQUARE_INCH = 'in2' as const;
+export const SQUARE_FOOT = 'ft2' as const;
+export const SQUARE_YARD = 'yd2' as const;
+export const SQUARE_MILE = 'mi2' as const;
+export const ACRE = 'acre' as const;
+
+// — Conversion factors —
 export const SQUARE_METER_TO_SQUARE_METER = 1;
 export const SQUARE_CENTIMETER_TO_SQUARE_METER = 1e-4;
 export const SQUARE_MILLIMETER_TO_SQUARE_METER = 1e-6;

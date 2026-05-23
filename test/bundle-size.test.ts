@@ -15,7 +15,7 @@ const distDir = resolve(here, '..', 'dist');
 // alias/locale additions. Tight enough to detect regressions, loose enough
 // not to flap on documentation changes.
 const BUDGETS_BYTES: Record<string, number> = {
-  'index.mjs': 9500,
+  'index.mjs': 13_000,
   'length.mjs': 4200,
   'mass.mjs': 4100,
   'time.mjs': 4000,

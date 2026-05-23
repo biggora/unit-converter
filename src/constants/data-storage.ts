@@ -11,6 +11,21 @@
  * @module
  */
 
+// — Unit identifiers —
+export const BYTE = 'B' as const;
+export const KILOBYTE = 'KB' as const;
+export const MEGABYTE = 'MB' as const;
+export const GIGABYTE = 'GB' as const;
+export const TERABYTE = 'TB' as const;
+export const PETABYTE = 'PB' as const;
+export const KIBIBYTE = 'KiB' as const;
+export const MEBIBYTE = 'MiB' as const;
+export const GIBIBYTE = 'GiB' as const;
+export const TEBIBYTE = 'TiB' as const;
+export const PEBIBYTE = 'PiB' as const;
+export const BIT = 'bit' as const;
+
+// — Conversion factors —
 export const BYTE_TO_BYTE = 1;
 export const BYTE_TO_BYTE_BIGINT = 1n;
 

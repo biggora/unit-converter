@@ -8,24 +8,44 @@
  */
 
 import {
+  VOLUME,
+  CUBIC_CENTIMETER,
   CUBIC_CENTIMETER_TO_CUBIC_METER,
+  CUBIC_FOOT,
   CUBIC_FOOT_TO_CUBIC_METER,
+  CUBIC_INCH,
   CUBIC_INCH_TO_CUBIC_METER,
+  CUBIC_KILOMETER,
   CUBIC_KILOMETER_TO_CUBIC_METER,
+  CUBIC_METER,
   CUBIC_METER_TO_CUBIC_METER,
+  CUBIC_MILLIMETER,
   CUBIC_MILLIMETER_TO_CUBIC_METER,
+  CUBIC_YARD,
   CUBIC_YARD_TO_CUBIC_METER,
+  IMPERIAL_FLUID_OUNCE,
   IMPERIAL_FLUID_OUNCE_TO_CUBIC_METER,
+  IMPERIAL_GALLON,
   IMPERIAL_GALLON_TO_CUBIC_METER,
+  IMPERIAL_PINT,
   IMPERIAL_PINT_TO_CUBIC_METER,
+  LITER,
   LITER_TO_CUBIC_METER,
+  MILLILITER,
   MILLILITER_TO_CUBIC_METER,
+  US_CUP,
   US_CUP_TO_CUBIC_METER,
+  US_FLUID_OUNCE,
   US_FLUID_OUNCE_TO_CUBIC_METER,
+  US_GALLON,
   US_GALLON_TO_CUBIC_METER,
+  US_PINT,
   US_PINT_TO_CUBIC_METER,
+  US_QUART,
   US_QUART_TO_CUBIC_METER,
+  US_TABLESPOON,
   US_TABLESPOON_TO_CUBIC_METER,
+  US_TEASPOON,
   US_TEASPOON_TO_CUBIC_METER,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
@@ -34,11 +54,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/volume.js';
 
 /** @internal */
-export const volumeCategory: CategoryDef<'volume'> = {
-  name: 'volume',
-  anchor: 'm3',
+export const volumeCategory: CategoryDef<typeof VOLUME> = {
+  name: VOLUME,
+  anchor: CUBIC_METER,
   units: {
-    m3: {
+    [CUBIC_METER]: {
       ratio: CUBIC_METER_TO_CUBIC_METER,
       name: 'cubic meter',
       plural: 'cubic meters',
@@ -46,7 +66,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'metric',
       aliases: ['cubicmeter', 'cubicmetre', 'm^3', 'm³'],
     },
-    L: {
+    [LITER]: {
       ratio: LITER_TO_CUBIC_METER,
       name: 'liter',
       plural: 'liters',
@@ -54,7 +74,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'metric',
       aliases: ['l', 'litre', 'litres', 'liter', 'liters'],
     },
-    mL: {
+    [MILLILITER]: {
       ratio: MILLILITER_TO_CUBIC_METER,
       name: 'milliliter',
       plural: 'milliliters',
@@ -62,7 +82,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'metric',
       aliases: ['ml', 'millilitre', 'millilitres'],
     },
-    cm3: {
+    [CUBIC_CENTIMETER]: {
       ratio: CUBIC_CENTIMETER_TO_CUBIC_METER,
       name: 'cubic centimeter',
       plural: 'cubic centimeters',
@@ -70,7 +90,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'metric',
       aliases: ['cc', 'cubiccentimeter', 'cm^3', 'cm³'],
     },
-    mm3: {
+    [CUBIC_MILLIMETER]: {
       ratio: CUBIC_MILLIMETER_TO_CUBIC_METER,
       name: 'cubic millimeter',
       plural: 'cubic millimeters',
@@ -78,7 +98,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'metric',
       aliases: ['cubicmillimeter', 'mm^3', 'mm³'],
     },
-    km3: {
+    [CUBIC_KILOMETER]: {
       ratio: CUBIC_KILOMETER_TO_CUBIC_METER,
       name: 'cubic kilometer',
       plural: 'cubic kilometers',
@@ -86,7 +106,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'metric',
       aliases: ['cubickilometer', 'km^3', 'km³'],
     },
-    'us-gal': {
+    [US_GALLON]: {
       ratio: US_GALLON_TO_CUBIC_METER,
       name: 'US gallon',
       plural: 'US gallons',
@@ -94,7 +114,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'us',
       aliases: ['gal', 'gallon', 'gallons', 'usgal'],
     },
-    'us-qt': {
+    [US_QUART]: {
       ratio: US_QUART_TO_CUBIC_METER,
       name: 'US quart',
       plural: 'US quarts',
@@ -102,7 +122,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'us',
       aliases: ['qt', 'quart', 'quarts', 'usqt'],
     },
-    'us-pt': {
+    [US_PINT]: {
       ratio: US_PINT_TO_CUBIC_METER,
       name: 'US pint',
       plural: 'US pints',
@@ -110,7 +130,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'us',
       aliases: ['pt', 'pint', 'pints', 'uspt'],
     },
-    'us-cup': {
+    [US_CUP]: {
       ratio: US_CUP_TO_CUBIC_METER,
       name: 'US cup',
       plural: 'US cups',
@@ -118,7 +138,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'us',
       aliases: ['cup', 'cups', 'uscup'],
     },
-    'us-floz': {
+    [US_FLUID_OUNCE]: {
       ratio: US_FLUID_OUNCE_TO_CUBIC_METER,
       name: 'US fluid ounce',
       plural: 'US fluid ounces',
@@ -126,7 +146,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'us',
       aliases: ['floz', 'fluidounce', 'fluidounces', 'usfloz'],
     },
-    'us-tbsp': {
+    [US_TABLESPOON]: {
       ratio: US_TABLESPOON_TO_CUBIC_METER,
       name: 'US tablespoon',
       plural: 'US tablespoons',
@@ -134,7 +154,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'us',
       aliases: ['tbsp', 'tablespoon', 'tablespoons'],
     },
-    'us-tsp': {
+    [US_TEASPOON]: {
       ratio: US_TEASPOON_TO_CUBIC_METER,
       name: 'US teaspoon',
       plural: 'US teaspoons',
@@ -142,7 +162,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'us',
       aliases: ['tsp', 'teaspoon', 'teaspoons'],
     },
-    'imp-gal': {
+    [IMPERIAL_GALLON]: {
       ratio: IMPERIAL_GALLON_TO_CUBIC_METER,
       name: 'imperial gallon',
       plural: 'imperial gallons',
@@ -150,7 +170,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'imperial',
       aliases: ['impgal', 'ukgal'],
     },
-    'imp-pt': {
+    [IMPERIAL_PINT]: {
       ratio: IMPERIAL_PINT_TO_CUBIC_METER,
       name: 'imperial pint',
       plural: 'imperial pints',
@@ -158,7 +178,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'imperial',
       aliases: ['imppt', 'ukpt'],
     },
-    'imp-floz': {
+    [IMPERIAL_FLUID_OUNCE]: {
       ratio: IMPERIAL_FLUID_OUNCE_TO_CUBIC_METER,
       name: 'imperial fluid ounce',
       plural: 'imperial fluid ounces',
@@ -166,7 +186,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'imperial',
       aliases: ['impfloz', 'ukfloz'],
     },
-    in3: {
+    [CUBIC_INCH]: {
       ratio: CUBIC_INCH_TO_CUBIC_METER,
       name: 'cubic inch',
       plural: 'cubic inches',
@@ -174,7 +194,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'imperial',
       aliases: ['cubicinch', 'in^3', 'in³'],
     },
-    ft3: {
+    [CUBIC_FOOT]: {
       ratio: CUBIC_FOOT_TO_CUBIC_METER,
       name: 'cubic foot',
       plural: 'cubic feet',
@@ -182,7 +202,7 @@ export const volumeCategory: CategoryDef<'volume'> = {
       system: 'imperial',
       aliases: ['cubicfoot', 'cubicfeet', 'ft^3', 'ft³'],
     },
-    yd3: {
+    [CUBIC_YARD]: {
       ratio: CUBIC_YARD_TO_CUBIC_METER,
       name: 'cubic yard',
       plural: 'cubic yards',

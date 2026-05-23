@@ -8,6 +8,21 @@
  * @module
  */
 
+// — Unit identifiers —
+export const KILOGRAM = 'kg' as const;
+export const GRAM = 'g' as const;
+export const MILLIGRAM = 'mg' as const;
+export const MICROGRAM = 'μg' as const;
+export const TONNE = 't' as const;
+export const POUND = 'lb' as const;
+export const OUNCE = 'oz' as const;
+export const STONE = 'st' as const;
+export const SHORT_TON = 'ton' as const;
+export const LONG_TON = 'long-ton' as const;
+export const GRAIN = 'gr' as const;
+export const CARAT = 'ct' as const;
+
+// — Conversion factors —
 export const KILOGRAM_TO_KILOGRAM = 1;
 export const GRAM_TO_KILOGRAM = 0.001;
 export const MILLIGRAM_TO_KILOGRAM = 1e-6;

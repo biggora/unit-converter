@@ -8,25 +8,33 @@
  */
 
 import {
+  ARCMINUTE,
   ARCMINUTE_TO_RADIAN,
+  ARCSECOND,
   ARCSECOND_TO_RADIAN,
+  DEGREE,
   DEGREE_TO_RADIAN,
+  GRADIAN,
   GRADIAN_TO_RADIAN,
+  MILLIRADIAN,
   MILLIRADIAN_TO_RADIAN,
+  RADIAN,
   RADIAN_TO_RADIAN,
+  TURN,
   TURN_TO_RADIAN,
-} from '../constants';
+} from '../constants/angle.js';
+import { ANGLE } from '../constants/categories.js';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
 
 export * from '../constants/angle.js';
 
 /** @internal */
-export const angleCategory: CategoryDef<'angle'> = {
-  name: 'angle',
-  anchor: 'rad',
+export const angleCategory: CategoryDef<typeof ANGLE> = {
+  name: ANGLE,
+  anchor: RADIAN,
   units: {
-    rad: {
+    [RADIAN]: {
       ratio: RADIAN_TO_RADIAN,
       name: 'radian',
       plural: 'radians',
@@ -34,7 +42,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       system: 'metric',
       aliases: ['radian', 'radians'],
     },
-    deg: {
+    [DEGREE]: {
       ratio: DEGREE_TO_RADIAN,
       name: 'degree',
       plural: 'degrees',
@@ -42,7 +50,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       system: 'metric',
       aliases: ['degree', 'degrees', '°'],
     },
-    gon: {
+    [GRADIAN]: {
       ratio: GRADIAN_TO_RADIAN,
       name: 'gradian',
       plural: 'gradians',
@@ -50,7 +58,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       system: 'metric',
       aliases: ['grad', 'grade', 'gradian', 'gradians'],
     },
-    turn: {
+    [TURN]: {
       ratio: TURN_TO_RADIAN,
       name: 'turn',
       plural: 'turns',
@@ -58,7 +66,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       system: 'metric',
       aliases: ['rev', 'revolution', 'revolutions', 'turns'],
     },
-    arcmin: {
+    [ARCMINUTE]: {
       ratio: ARCMINUTE_TO_RADIAN,
       name: 'arcminute',
       plural: 'arcminutes',
@@ -66,7 +74,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       system: 'metric',
       aliases: ['arcminute', 'arcminutes', 'moa'],
     },
-    arcsec: {
+    [ARCSECOND]: {
       ratio: ARCSECOND_TO_RADIAN,
       name: 'arcsecond',
       plural: 'arcseconds',
@@ -74,7 +82,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       system: 'metric',
       aliases: ['arcsecond', 'arcseconds'],
     },
-    mrad: {
+    [MILLIRADIAN]: {
       ratio: MILLIRADIAN_TO_RADIAN,
       name: 'milliradian',
       plural: 'milliradians',

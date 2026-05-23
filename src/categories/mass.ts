@@ -8,17 +8,30 @@
  */
 
 import {
+  MASS,
+  CARAT,
   CARAT_TO_KILOGRAM,
+  GRAIN,
   GRAIN_TO_KILOGRAM,
+  GRAM,
   GRAM_TO_KILOGRAM,
+  KILOGRAM,
   KILOGRAM_TO_KILOGRAM,
+  LONG_TON,
   LONG_TON_TO_KILOGRAM,
+  MICROGRAM,
   MICROGRAM_TO_KILOGRAM,
+  MILLIGRAM,
   MILLIGRAM_TO_KILOGRAM,
+  OUNCE,
   OUNCE_TO_KILOGRAM,
+  POUND,
   POUND_TO_KILOGRAM,
+  SHORT_TON,
   SHORT_TON_TO_KILOGRAM,
+  STONE,
   STONE_TO_KILOGRAM,
+  TONNE,
   TONNE_TO_KILOGRAM,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
@@ -27,11 +40,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/mass.js';
 
 /** @internal */
-export const massCategory: CategoryDef<'mass'> = {
-  name: 'mass',
-  anchor: 'kg',
+export const massCategory: CategoryDef<typeof MASS> = {
+  name: MASS,
+  anchor: KILOGRAM,
   units: {
-    kg: {
+    [KILOGRAM]: {
       ratio: KILOGRAM_TO_KILOGRAM,
       name: 'kilogram',
       plural: 'kilograms',
@@ -39,7 +52,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'metric',
       aliases: ['kilo', 'kilos', 'kilogram', 'kilograms'],
     },
-    g: {
+    [GRAM]: {
       ratio: GRAM_TO_KILOGRAM,
       name: 'gram',
       plural: 'grams',
@@ -47,7 +60,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'metric',
       aliases: ['gram', 'grams'],
     },
-    mg: {
+    [MILLIGRAM]: {
       ratio: MILLIGRAM_TO_KILOGRAM,
       name: 'milligram',
       plural: 'milligrams',
@@ -55,7 +68,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'metric',
       aliases: ['milligram', 'milligrams'],
     },
-    μg: {
+    [MICROGRAM]: {
       ratio: MICROGRAM_TO_KILOGRAM,
       name: 'microgram',
       plural: 'micrograms',
@@ -63,7 +76,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'metric',
       aliases: ['ug', 'microgram', 'micrograms'],
     },
-    t: {
+    [TONNE]: {
       ratio: TONNE_TO_KILOGRAM,
       name: 'tonne',
       plural: 'tonnes',
@@ -71,7 +84,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'metric',
       aliases: ['tonne', 'tonnes', 'mt', 'metricton'],
     },
-    lb: {
+    [POUND]: {
       ratio: POUND_TO_KILOGRAM,
       name: 'pound',
       plural: 'pounds',
@@ -79,7 +92,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'imperial',
       aliases: ['pound', 'pounds', 'lbs'],
     },
-    oz: {
+    [OUNCE]: {
       ratio: OUNCE_TO_KILOGRAM,
       name: 'ounce',
       plural: 'ounces',
@@ -87,7 +100,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'imperial',
       aliases: ['ounce', 'ounces'],
     },
-    st: {
+    [STONE]: {
       ratio: STONE_TO_KILOGRAM,
       name: 'stone',
       plural: 'stones',
@@ -95,7 +108,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'imperial',
       aliases: ['stone', 'stones'],
     },
-    ton: {
+    [SHORT_TON]: {
       ratio: SHORT_TON_TO_KILOGRAM,
       name: 'short ton',
       plural: 'short tons',
@@ -103,7 +116,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'us',
       aliases: ['shortton', 'ston', 'uston'],
     },
-    'long-ton': {
+    [LONG_TON]: {
       ratio: LONG_TON_TO_KILOGRAM,
       name: 'long ton',
       plural: 'long tons',
@@ -111,7 +124,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'imperial',
       aliases: ['longton', 'lton', 'ukton'],
     },
-    gr: {
+    [GRAIN]: {
       ratio: GRAIN_TO_KILOGRAM,
       name: 'grain',
       plural: 'grains',
@@ -119,7 +132,7 @@ export const massCategory: CategoryDef<'mass'> = {
       system: 'imperial',
       aliases: ['grain', 'grains'],
     },
-    ct: {
+    [CARAT]: {
       ratio: CARAT_TO_KILOGRAM,
       name: 'carat',
       plural: 'carats',

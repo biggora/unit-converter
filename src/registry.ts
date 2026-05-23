@@ -12,5 +12,7 @@ export {
   type ExportedCategory,
   type ExportedRegistry,
   type ExportedUnit,
+  type ExportFormat,
+  type ExportOptions,
   exportRegistry,
 } from './core/exporter.js';

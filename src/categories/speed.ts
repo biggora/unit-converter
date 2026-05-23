@@ -7,14 +7,23 @@
  * @module
  */
 
+import { SPEED } from '../constants';
 import {
+  FOOT_PER_SECOND,
   FOOT_PER_SECOND_TO_METER_PER_SECOND,
+  INCH_PER_SECOND,
   INCH_PER_SECOND_TO_METER_PER_SECOND,
+  KILOMETER_PER_HOUR,
   KILOMETER_PER_HOUR_TO_METER_PER_SECOND,
+  KNOT,
   KNOT_TO_METER_PER_SECOND,
+  MACH,
   MACH_TO_METER_PER_SECOND,
+  METER_PER_SECOND,
   METER_PER_SECOND_TO_METER_PER_SECOND,
+  MILE_PER_HOUR,
   MILE_PER_HOUR_TO_METER_PER_SECOND,
+  SPEED_OF_LIGHT,
   SPEED_OF_LIGHT_TO_METER_PER_SECOND,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
@@ -23,11 +32,11 @@ import { makeCategory } from '../factories/make-category.js';
 export * from '../constants/speed.js';
 
 /** @internal */
-export const speedCategory: CategoryDef<'speed'> = {
-  name: 'speed',
-  anchor: 'm/s',
+export const speedCategory: CategoryDef<typeof SPEED> = {
+  name: SPEED,
+  anchor: METER_PER_SECOND,
   units: {
-    'm/s': {
+    [METER_PER_SECOND]: {
       ratio: METER_PER_SECOND_TO_METER_PER_SECOND,
       name: 'meter per second',
       plural: 'meters per second',
@@ -35,7 +44,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       system: 'metric',
       aliases: ['mps', 'meterspersecond'],
     },
-    'km/h': {
+    [KILOMETER_PER_HOUR]: {
       ratio: KILOMETER_PER_HOUR_TO_METER_PER_SECOND,
       name: 'kilometer per hour',
       plural: 'kilometers per hour',
@@ -43,7 +52,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       system: 'metric',
       aliases: ['kph', 'kmh', 'kmph'],
     },
-    mph: {
+    [MILE_PER_HOUR]: {
       ratio: MILE_PER_HOUR_TO_METER_PER_SECOND,
       name: 'mile per hour',
       plural: 'miles per hour',
@@ -51,7 +60,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       system: 'imperial',
       aliases: ['mileperhour', 'milesperhour'],
     },
-    kn: {
+    [KNOT]: {
       ratio: KNOT_TO_METER_PER_SECOND,
       name: 'knot',
       plural: 'knots',
@@ -59,7 +68,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       system: 'imperial',
       aliases: ['knot', 'knots', 'kt'],
     },
-    'ft/s': {
+    [FOOT_PER_SECOND]: {
       ratio: FOOT_PER_SECOND_TO_METER_PER_SECOND,
       name: 'foot per second',
       plural: 'feet per second',
@@ -67,7 +76,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       system: 'imperial',
       aliases: ['fps', 'ftps'],
     },
-    'in/s': {
+    [INCH_PER_SECOND]: {
       ratio: INCH_PER_SECOND_TO_METER_PER_SECOND,
       name: 'inch per second',
       plural: 'inches per second',
@@ -75,14 +84,14 @@ export const speedCategory: CategoryDef<'speed'> = {
       system: 'imperial',
       aliases: ['ips', 'inps'],
     },
-    mach: {
+    [MACH]: {
       ratio: MACH_TO_METER_PER_SECOND,
       name: 'mach',
       symbol: 'Ma',
       system: 'metric',
       aliases: ['ma'],
     },
-    c: {
+    [SPEED_OF_LIGHT]: {
       ratio: SPEED_OF_LIGHT_TO_METER_PER_SECOND,
       name: 'speed of light',
       symbol: 'c',
