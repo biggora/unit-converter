@@ -18,7 +18,6 @@
  */
 
 import {
-  TEMPERATURE,
   CELSIUS,
   CELSIUS_TO_KELVIN_OFFSET,
   CELSIUS_TO_KELVIN_RATIO,
@@ -31,6 +30,7 @@ import {
   RANKINE,
   RANKINE_TO_KELVIN_OFFSET,
   RANKINE_TO_KELVIN_RATIO,
+  TEMPERATURE,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';

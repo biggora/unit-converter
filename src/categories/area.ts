@@ -11,6 +11,7 @@ import {
   ACRE,
   ACRE_TO_SQUARE_METER,
   ARE,
+  AREA,
   ARE_TO_SQUARE_METER,
   HECTARE,
   HECTARE_TO_SQUARE_METER,
@@ -30,7 +31,6 @@ import {
   SQUARE_MILLIMETER_TO_SQUARE_METER,
   SQUARE_YARD,
   SQUARE_YARD_TO_SQUARE_METER,
-  AREA,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';

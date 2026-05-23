@@ -6,9 +6,7 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import * as categoriesC from '../src/constants/categories.js';
 import {
-  length,
   ACRE,
   ANGSTROM,
   ARCMINUTE,
@@ -48,7 +46,9 @@ import {
   TURN,
   US_GALLON,
   YEAR,
+  length,
 } from '../src';
+import * as categoriesC from '../src/constants/categories.js';
 
 import * as angleC from '../src/constants/angle.js';
 import * as areaC from '../src/constants/area.js';

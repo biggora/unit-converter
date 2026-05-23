@@ -8,7 +8,6 @@
  */
 
 import {
-  VOLUME,
   CUBIC_CENTIMETER,
   CUBIC_CENTIMETER_TO_CUBIC_METER,
   CUBIC_FOOT,
@@ -47,6 +46,7 @@ import {
   US_TABLESPOON_TO_CUBIC_METER,
   US_TEASPOON,
   US_TEASPOON_TO_CUBIC_METER,
+  VOLUME,
 } from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
