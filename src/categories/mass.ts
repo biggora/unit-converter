@@ -1,13 +1,30 @@
 /**
  * Mass conversions (anchor: kilogram).
  *
- * Imperial / avoirdupois values are NIST SP 811 §B.8 boldface (exact).
+ * Numeric factors are exported as named constants in
+ * {@link ../constants/mass | src/constants/mass.ts} and re-exported below.
  *
  * @module
  */
 
+import {
+  CARAT_TO_KILOGRAM,
+  GRAIN_TO_KILOGRAM,
+  GRAM_TO_KILOGRAM,
+  KILOGRAM_TO_KILOGRAM,
+  LONG_TON_TO_KILOGRAM,
+  MICROGRAM_TO_KILOGRAM,
+  MILLIGRAM_TO_KILOGRAM,
+  OUNCE_TO_KILOGRAM,
+  POUND_TO_KILOGRAM,
+  SHORT_TON_TO_KILOGRAM,
+  STONE_TO_KILOGRAM,
+  TONNE_TO_KILOGRAM,
+} from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
+
+export * from '../constants/mass.js';
 
 /** @internal */
 export const massCategory: CategoryDef<'mass'> = {
@@ -15,7 +32,7 @@ export const massCategory: CategoryDef<'mass'> = {
   anchor: 'kg',
   units: {
     kg: {
-      ratio: 1,
+      ratio: KILOGRAM_TO_KILOGRAM,
       name: 'kilogram',
       plural: 'kilograms',
       symbol: 'kg',
@@ -23,7 +40,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['kilo', 'kilos', 'kilogram', 'kilograms'],
     },
     g: {
-      ratio: 0.001,
+      ratio: GRAM_TO_KILOGRAM,
       name: 'gram',
       plural: 'grams',
       symbol: 'g',
@@ -31,7 +48,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['gram', 'grams'],
     },
     mg: {
-      ratio: 1e-6,
+      ratio: MILLIGRAM_TO_KILOGRAM,
       name: 'milligram',
       plural: 'milligrams',
       symbol: 'mg',
@@ -39,7 +56,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['milligram', 'milligrams'],
     },
     μg: {
-      ratio: 1e-9,
+      ratio: MICROGRAM_TO_KILOGRAM,
       name: 'microgram',
       plural: 'micrograms',
       symbol: 'μg',
@@ -47,7 +64,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['ug', 'microgram', 'micrograms'],
     },
     t: {
-      ratio: 1_000,
+      ratio: TONNE_TO_KILOGRAM,
       name: 'tonne',
       plural: 'tonnes',
       symbol: 't',
@@ -55,7 +72,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['tonne', 'tonnes', 'mt', 'metricton'],
     },
     lb: {
-      ratio: 0.45359237, // NIST SP 811 §B.8 exact
+      ratio: POUND_TO_KILOGRAM,
       name: 'pound',
       plural: 'pounds',
       symbol: 'lb',
@@ -63,7 +80,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['pound', 'pounds', 'lbs'],
     },
     oz: {
-      ratio: 0.028349523125, // = lb / 16, exact
+      ratio: OUNCE_TO_KILOGRAM,
       name: 'ounce',
       plural: 'ounces',
       symbol: 'oz',
@@ -71,7 +88,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['ounce', 'ounces'],
     },
     st: {
-      ratio: 6.35029318, // = 14 * lb, exact
+      ratio: STONE_TO_KILOGRAM,
       name: 'stone',
       plural: 'stones',
       symbol: 'st',
@@ -79,7 +96,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['stone', 'stones'],
     },
     ton: {
-      ratio: 907.18474, // US short ton = 2000 lb, exact
+      ratio: SHORT_TON_TO_KILOGRAM,
       name: 'short ton',
       plural: 'short tons',
       symbol: 'ton',
@@ -87,7 +104,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['shortton', 'ston', 'uston'],
     },
     'long-ton': {
-      ratio: 1016.0469088, // UK long ton = 2240 lb, exact
+      ratio: LONG_TON_TO_KILOGRAM,
       name: 'long ton',
       plural: 'long tons',
       symbol: 'long ton',
@@ -95,7 +112,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['longton', 'lton', 'ukton'],
     },
     gr: {
-      ratio: 0.00006479891, // NIST: grain = 64.79891 mg, exact
+      ratio: GRAIN_TO_KILOGRAM,
       name: 'grain',
       plural: 'grains',
       symbol: 'gr',
@@ -103,7 +120,7 @@ export const massCategory: CategoryDef<'mass'> = {
       aliases: ['grain', 'grains'],
     },
     ct: {
-      ratio: 0.0002, // metric carat = 200 mg, exact
+      ratio: CARAT_TO_KILOGRAM,
       name: 'carat',
       plural: 'carats',
       symbol: 'ct',

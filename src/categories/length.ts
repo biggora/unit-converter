@@ -1,14 +1,33 @@
 /**
  * Length conversions (anchor: metre).
  *
- * Imperial values are NIST SP 811 §B.8 boldface (exact). Astronomical values
- * follow IAU 2012 nominal conversions.
+ * Numeric factors are exported as named constants in
+ * {@link ../constants/length | src/constants/length.ts} and re-exported below.
  *
  * @module
  */
 
+import {
+  ANGSTROM_TO_METER,
+  ASTRONOMICAL_UNIT_TO_METER,
+  CENTIMETER_TO_METER,
+  FOOT_TO_METER,
+  INCH_TO_METER,
+  KILOMETER_TO_METER,
+  LIGHT_YEAR_TO_METER,
+  METER_TO_METER,
+  MICROMETER_TO_METER,
+  MILE_TO_METER,
+  MILLIMETER_TO_METER,
+  NANOMETER_TO_METER,
+  NAUTICAL_MILE_TO_METER,
+  PARSEC_TO_METER,
+  YARD_TO_METER,
+} from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
+
+export * from '../constants/length.js';
 
 /**
  * Raw category definition. Used by the root registry; most consumers should
@@ -21,7 +40,7 @@ export const lengthCategory: CategoryDef<'length'> = {
   anchor: 'm',
   units: {
     m: {
-      ratio: 1,
+      ratio: METER_TO_METER,
       name: 'meter',
       plural: 'meters',
       symbol: 'm',
@@ -29,7 +48,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['meter', 'metre', 'metres', 'meters'],
     },
     km: {
-      ratio: 1_000,
+      ratio: KILOMETER_TO_METER,
       name: 'kilometer',
       plural: 'kilometers',
       symbol: 'km',
@@ -37,7 +56,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['kilometre', 'kilometres', 'kilometers'],
     },
     cm: {
-      ratio: 0.01,
+      ratio: CENTIMETER_TO_METER,
       name: 'centimeter',
       plural: 'centimeters',
       symbol: 'cm',
@@ -45,7 +64,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['centimetre', 'centimetres'],
     },
     mm: {
-      ratio: 0.001,
+      ratio: MILLIMETER_TO_METER,
       name: 'millimeter',
       plural: 'millimeters',
       symbol: 'mm',
@@ -53,7 +72,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['millimetre', 'millimetres'],
     },
     μm: {
-      ratio: 1e-6,
+      ratio: MICROMETER_TO_METER,
       name: 'micrometer',
       plural: 'micrometers',
       symbol: 'μm',
@@ -61,7 +80,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['um', 'micrometre', 'micrometres', 'micron', 'microns'],
     },
     nm: {
-      ratio: 1e-9,
+      ratio: NANOMETER_TO_METER,
       name: 'nanometer',
       plural: 'nanometers',
       symbol: 'nm',
@@ -69,7 +88,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['nanometre', 'nanometres'],
     },
     Å: {
-      ratio: 1e-10,
+      ratio: ANGSTROM_TO_METER,
       name: 'angstrom',
       plural: 'angstroms',
       symbol: 'Å',
@@ -77,7 +96,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['angstrom', 'angstroms', 'a'],
     },
     in: {
-      ratio: 0.0254, // NIST SP 811 §B.8 exact
+      ratio: INCH_TO_METER,
       name: 'inch',
       plural: 'inches',
       symbol: 'in',
@@ -85,7 +104,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['inch', 'inches', '"'],
     },
     ft: {
-      ratio: 0.3048, // NIST SP 811 §B.8 exact
+      ratio: FOOT_TO_METER,
       name: 'foot',
       plural: 'feet',
       symbol: 'ft',
@@ -93,7 +112,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['foot', 'feet', "'"],
     },
     yd: {
-      ratio: 0.9144, // NIST SP 811 §B.8 exact
+      ratio: YARD_TO_METER,
       name: 'yard',
       plural: 'yards',
       symbol: 'yd',
@@ -101,7 +120,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['yard', 'yards'],
     },
     mi: {
-      ratio: 1609.344, // NIST SP 811 §B.8 exact
+      ratio: MILE_TO_METER,
       name: 'mile',
       plural: 'miles',
       symbol: 'mi',
@@ -109,7 +128,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['mile', 'miles'],
     },
     nmi: {
-      ratio: 1852, // NIST SP 811 §B.9 exact
+      ratio: NAUTICAL_MILE_TO_METER,
       name: 'nautical mile',
       plural: 'nautical miles',
       symbol: 'nmi',
@@ -117,7 +136,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['nauticalmile', 'nauticalmiles'],
     },
     ly: {
-      ratio: 9.4607304725808e15, // IAU 2012: c × Julian-year
+      ratio: LIGHT_YEAR_TO_METER,
       name: 'light-year',
       plural: 'light-years',
       symbol: 'ly',
@@ -125,7 +144,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['lightyear', 'lightyears'],
     },
     au: {
-      ratio: 1.495978707e11, // IAU 2012 exact
+      ratio: ASTRONOMICAL_UNIT_TO_METER,
       name: 'astronomical unit',
       plural: 'astronomical units',
       symbol: 'au',
@@ -133,11 +152,7 @@ export const lengthCategory: CategoryDef<'length'> = {
       aliases: ['ua'],
     },
     pc: {
-      // Parsec literal exceeds float64 mantissa precision — the runtime value
-      // is the nearest representable double (≈ 3.085677581491367e16). Accepted
-      // as the canonical encoding of this astronomical constant.
-      // biome-ignore lint/correctness/noPrecisionLoss: documented IEEE-754 limit
-      ratio: 3.0856775814913673e16,
+      ratio: PARSEC_TO_METER,
       name: 'parsec',
       plural: 'parsecs',
       symbol: 'pc',

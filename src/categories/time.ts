@@ -1,6 +1,9 @@
 /**
  * Time conversions (anchor: second).
  *
+ * Numeric factors are exported as named constants in
+ * {@link ../constants/time | src/constants/time.ts} and re-exported below.
+ *
  * Units `ns`-through-`week` carry integer `bigintRatio`s expressed in
  * nanoseconds, enabling exact BigInt conversions. `month` and `year` use the
  * Julian conventions (30.4375 days / 365.25 days) and are number-only.
@@ -8,8 +11,30 @@
  * @module
  */
 
+import {
+  DAY_TO_NANOSECOND_BIGINT,
+  DAY_TO_SECOND,
+  HOUR_TO_NANOSECOND_BIGINT,
+  HOUR_TO_SECOND,
+  MICROSECOND_TO_NANOSECOND_BIGINT,
+  MICROSECOND_TO_SECOND,
+  MILLISECOND_TO_NANOSECOND_BIGINT,
+  MILLISECOND_TO_SECOND,
+  MINUTE_TO_NANOSECOND_BIGINT,
+  MINUTE_TO_SECOND,
+  MONTH_TO_SECOND,
+  NANOSECOND_TO_NANOSECOND_BIGINT,
+  NANOSECOND_TO_SECOND,
+  SECOND_TO_NANOSECOND_BIGINT,
+  SECOND_TO_SECOND,
+  WEEK_TO_NANOSECOND_BIGINT,
+  WEEK_TO_SECOND,
+  YEAR_TO_SECOND,
+} from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
+
+export * from '../constants/time.js';
 
 /** @internal */
 export const timeCategory: CategoryDef<'time'> = {
@@ -17,8 +42,8 @@ export const timeCategory: CategoryDef<'time'> = {
   anchor: 's',
   units: {
     ns: {
-      ratio: 1e-9,
-      bigintRatio: 1n,
+      ratio: NANOSECOND_TO_SECOND,
+      bigintRatio: NANOSECOND_TO_NANOSECOND_BIGINT,
       name: 'nanosecond',
       plural: 'nanoseconds',
       symbol: 'ns',
@@ -26,8 +51,8 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['nanosecond', 'nanoseconds'],
     },
     μs: {
-      ratio: 1e-6,
-      bigintRatio: 1_000n,
+      ratio: MICROSECOND_TO_SECOND,
+      bigintRatio: MICROSECOND_TO_NANOSECOND_BIGINT,
       name: 'microsecond',
       plural: 'microseconds',
       symbol: 'μs',
@@ -35,8 +60,8 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['us', 'microsecond', 'microseconds'],
     },
     ms: {
-      ratio: 1e-3,
-      bigintRatio: 1_000_000n,
+      ratio: MILLISECOND_TO_SECOND,
+      bigintRatio: MILLISECOND_TO_NANOSECOND_BIGINT,
       name: 'millisecond',
       plural: 'milliseconds',
       symbol: 'ms',
@@ -44,8 +69,8 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['millisecond', 'milliseconds'],
     },
     s: {
-      ratio: 1,
-      bigintRatio: 1_000_000_000n,
+      ratio: SECOND_TO_SECOND,
+      bigintRatio: SECOND_TO_NANOSECOND_BIGINT,
       name: 'second',
       plural: 'seconds',
       symbol: 's',
@@ -53,8 +78,8 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['sec', 'secs', 'second', 'seconds'],
     },
     min: {
-      ratio: 60,
-      bigintRatio: 60_000_000_000n,
+      ratio: MINUTE_TO_SECOND,
+      bigintRatio: MINUTE_TO_NANOSECOND_BIGINT,
       name: 'minute',
       plural: 'minutes',
       symbol: 'min',
@@ -62,8 +87,8 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['minute', 'minutes'],
     },
     h: {
-      ratio: 3_600,
-      bigintRatio: 3_600_000_000_000n,
+      ratio: HOUR_TO_SECOND,
+      bigintRatio: HOUR_TO_NANOSECOND_BIGINT,
       name: 'hour',
       plural: 'hours',
       symbol: 'h',
@@ -71,8 +96,8 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['hr', 'hrs', 'hour', 'hours'],
     },
     d: {
-      ratio: 86_400,
-      bigintRatio: 86_400_000_000_000n,
+      ratio: DAY_TO_SECOND,
+      bigintRatio: DAY_TO_NANOSECOND_BIGINT,
       name: 'day',
       plural: 'days',
       symbol: 'd',
@@ -80,8 +105,8 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['day', 'days'],
     },
     week: {
-      ratio: 604_800,
-      bigintRatio: 604_800_000_000_000n,
+      ratio: WEEK_TO_SECOND,
+      bigintRatio: WEEK_TO_NANOSECOND_BIGINT,
       name: 'week',
       plural: 'weeks',
       symbol: 'wk',
@@ -89,7 +114,7 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['wk', 'weeks'],
     },
     month: {
-      ratio: 2_629_746, // average Julian month (365.25 / 12 days)
+      ratio: MONTH_TO_SECOND,
       name: 'month',
       plural: 'months',
       symbol: 'mo',
@@ -97,7 +122,7 @@ export const timeCategory: CategoryDef<'time'> = {
       aliases: ['mo', 'months'],
     },
     year: {
-      ratio: 31_557_600, // Julian year = 365.25 days
+      ratio: YEAR_TO_SECOND,
       name: 'year',
       plural: 'years',
       symbol: 'yr',

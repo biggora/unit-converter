@@ -1,15 +1,31 @@
 /**
  * Pressure conversions (anchor: pascal).
  *
- * `atm` is defined as exactly 101325 Pa (NIST §B.8). `psi` derives from the
- * exact pound-force / square-inch definition and is rounded to 10 significant
- * digits.
+ * Numeric factors are exported as named constants in
+ * {@link ../constants/pressure | src/constants/pressure.ts} and re-exported
+ * below.
  *
  * @module
  */
 
+import {
+  ATMOSPHERE_TO_PASCAL,
+  BAR_TO_PASCAL,
+  GIGAPASCAL_TO_PASCAL,
+  HECTOPASCAL_TO_PASCAL,
+  INCH_OF_MERCURY_TO_PASCAL,
+  KILOPASCAL_TO_PASCAL,
+  MEGAPASCAL_TO_PASCAL,
+  MILLIBAR_TO_PASCAL,
+  MILLIMETER_OF_MERCURY_TO_PASCAL,
+  PASCAL_TO_PASCAL,
+  PSI_TO_PASCAL,
+  TORR_TO_PASCAL,
+} from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
+
+export * from '../constants/pressure.js';
 
 /** @internal */
 export const pressureCategory: CategoryDef<'pressure'> = {
@@ -17,7 +33,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
   anchor: 'Pa',
   units: {
     Pa: {
-      ratio: 1,
+      ratio: PASCAL_TO_PASCAL,
       name: 'pascal',
       plural: 'pascals',
       symbol: 'Pa',
@@ -25,7 +41,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['pascal', 'pascals'],
     },
     hPa: {
-      ratio: 100,
+      ratio: HECTOPASCAL_TO_PASCAL,
       name: 'hectopascal',
       plural: 'hectopascals',
       symbol: 'hPa',
@@ -33,7 +49,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['hectopascal', 'hectopascals'],
     },
     kPa: {
-      ratio: 1_000,
+      ratio: KILOPASCAL_TO_PASCAL,
       name: 'kilopascal',
       plural: 'kilopascals',
       symbol: 'kPa',
@@ -41,7 +57,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['kilopascal', 'kilopascals'],
     },
     MPa: {
-      ratio: 1_000_000,
+      ratio: MEGAPASCAL_TO_PASCAL,
       name: 'megapascal',
       plural: 'megapascals',
       symbol: 'MPa',
@@ -49,7 +65,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['megapascal', 'megapascals'],
     },
     GPa: {
-      ratio: 1_000_000_000,
+      ratio: GIGAPASCAL_TO_PASCAL,
       name: 'gigapascal',
       plural: 'gigapascals',
       symbol: 'GPa',
@@ -57,7 +73,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['gigapascal', 'gigapascals'],
     },
     bar: {
-      ratio: 100_000,
+      ratio: BAR_TO_PASCAL,
       name: 'bar',
       plural: 'bar',
       symbol: 'bar',
@@ -65,7 +81,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['bars'],
     },
     mbar: {
-      ratio: 100,
+      ratio: MILLIBAR_TO_PASCAL,
       name: 'millibar',
       plural: 'millibar',
       symbol: 'mbar',
@@ -73,7 +89,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['millibar', 'millibars'],
     },
     atm: {
-      ratio: 101_325, // NIST §B.8 exact
+      ratio: ATMOSPHERE_TO_PASCAL,
       name: 'standard atmosphere',
       plural: 'atmospheres',
       symbol: 'atm',
@@ -81,7 +97,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['atmosphere', 'atmospheres'],
     },
     torr: {
-      ratio: 101_325 / 760,
+      ratio: TORR_TO_PASCAL,
       name: 'torr',
       plural: 'torr',
       symbol: 'Torr',
@@ -89,7 +105,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['Torr'],
     },
     mmHg: {
-      ratio: 133.322387415, // CIPM 2007
+      ratio: MILLIMETER_OF_MERCURY_TO_PASCAL,
       name: 'millimeter of mercury',
       plural: 'millimeters of mercury',
       symbol: 'mmHg',
@@ -97,7 +113,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['mmhg'],
     },
     inHg: {
-      ratio: 3386.388640341, // 25.4 × mmHg
+      ratio: INCH_OF_MERCURY_TO_PASCAL,
       name: 'inch of mercury',
       plural: 'inches of mercury',
       symbol: 'inHg',
@@ -105,7 +121,7 @@ export const pressureCategory: CategoryDef<'pressure'> = {
       aliases: ['inhg'],
     },
     psi: {
-      ratio: 6894.757293168, // NIST §B.8: lbf / in² exact then rounded
+      ratio: PSI_TO_PASCAL,
       name: 'pound-force per square inch',
       plural: 'pound-force per square inch',
       symbol: 'psi',

@@ -16,6 +16,8 @@ const CATEGORIES = [
 export default defineConfig({
   entry: {
     index: 'src/index.ts',
+    registry: 'src/registry.ts',
+    constants: 'src/constants/index.ts',
     ...Object.fromEntries(CATEGORIES.map((c) => [c, `src/categories/${c}.ts`])),
   },
   format: ['esm', 'cjs'],

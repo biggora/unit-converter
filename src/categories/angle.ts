@@ -1,13 +1,25 @@
 /**
  * Plane-angle conversions (anchor: radian).
  *
+ * Numeric factors are exported as named constants in
+ * {@link ../constants/angle | src/constants/angle.ts} and re-exported below.
+ *
  * @module
  */
 
+import {
+  ARCMINUTE_TO_RADIAN,
+  ARCSECOND_TO_RADIAN,
+  DEGREE_TO_RADIAN,
+  GRADIAN_TO_RADIAN,
+  MILLIRADIAN_TO_RADIAN,
+  RADIAN_TO_RADIAN,
+  TURN_TO_RADIAN,
+} from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
 
-const PI = Math.PI;
+export * from '../constants/angle.js';
 
 /** @internal */
 export const angleCategory: CategoryDef<'angle'> = {
@@ -15,7 +27,7 @@ export const angleCategory: CategoryDef<'angle'> = {
   anchor: 'rad',
   units: {
     rad: {
-      ratio: 1,
+      ratio: RADIAN_TO_RADIAN,
       name: 'radian',
       plural: 'radians',
       symbol: 'rad',
@@ -23,7 +35,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       aliases: ['radian', 'radians'],
     },
     deg: {
-      ratio: PI / 180,
+      ratio: DEGREE_TO_RADIAN,
       name: 'degree',
       plural: 'degrees',
       symbol: '°',
@@ -31,7 +43,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       aliases: ['degree', 'degrees', '°'],
     },
     gon: {
-      ratio: PI / 200,
+      ratio: GRADIAN_TO_RADIAN,
       name: 'gradian',
       plural: 'gradians',
       symbol: 'gon',
@@ -39,7 +51,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       aliases: ['grad', 'grade', 'gradian', 'gradians'],
     },
     turn: {
-      ratio: 2 * PI,
+      ratio: TURN_TO_RADIAN,
       name: 'turn',
       plural: 'turns',
       symbol: 'turn',
@@ -47,7 +59,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       aliases: ['rev', 'revolution', 'revolutions', 'turns'],
     },
     arcmin: {
-      ratio: PI / (180 * 60),
+      ratio: ARCMINUTE_TO_RADIAN,
       name: 'arcminute',
       plural: 'arcminutes',
       symbol: "'",
@@ -55,7 +67,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       aliases: ['arcminute', 'arcminutes', 'moa'],
     },
     arcsec: {
-      ratio: PI / (180 * 3600),
+      ratio: ARCSECOND_TO_RADIAN,
       name: 'arcsecond',
       plural: 'arcseconds',
       symbol: '"',
@@ -63,7 +75,7 @@ export const angleCategory: CategoryDef<'angle'> = {
       aliases: ['arcsecond', 'arcseconds'],
     },
     mrad: {
-      ratio: 1e-3,
+      ratio: MILLIRADIAN_TO_RADIAN,
       name: 'milliradian',
       plural: 'milliradians',
       symbol: 'mrad',

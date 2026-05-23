@@ -22,6 +22,13 @@
 
 export { convert, type ConvertOptions } from './core/convert.js';
 
+export {
+  type ExportedCategory,
+  type ExportedRegistry,
+  type ExportedUnit,
+  exportRegistry,
+} from './core/exporter.js';
+
 export type {
   BestOptions,
   BestResult,

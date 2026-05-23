@@ -1,14 +1,29 @@
 /**
  * Area conversions (anchor: square metre).
  *
- * Imperial squared values are derived from the exact NIST §B.8 length values
- * (so `ft2 = 0.3048²`, etc).
+ * Numeric factors are exported as named constants in
+ * {@link ../constants/area | src/constants/area.ts} and re-exported below.
  *
  * @module
  */
 
+import {
+  ACRE_TO_SQUARE_METER,
+  ARE_TO_SQUARE_METER,
+  HECTARE_TO_SQUARE_METER,
+  SQUARE_CENTIMETER_TO_SQUARE_METER,
+  SQUARE_FOOT_TO_SQUARE_METER,
+  SQUARE_INCH_TO_SQUARE_METER,
+  SQUARE_KILOMETER_TO_SQUARE_METER,
+  SQUARE_METER_TO_SQUARE_METER,
+  SQUARE_MILE_TO_SQUARE_METER,
+  SQUARE_MILLIMETER_TO_SQUARE_METER,
+  SQUARE_YARD_TO_SQUARE_METER,
+} from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
+
+export * from '../constants/area.js';
 
 /** @internal */
 export const areaCategory: CategoryDef<'area'> = {
@@ -16,7 +31,7 @@ export const areaCategory: CategoryDef<'area'> = {
   anchor: 'm2',
   units: {
     m2: {
-      ratio: 1,
+      ratio: SQUARE_METER_TO_SQUARE_METER,
       name: 'square meter',
       plural: 'square meters',
       symbol: 'm²',
@@ -24,7 +39,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqm', 'squaremeter', 'm^2', 'm²'],
     },
     cm2: {
-      ratio: 1e-4,
+      ratio: SQUARE_CENTIMETER_TO_SQUARE_METER,
       name: 'square centimeter',
       plural: 'square centimeters',
       symbol: 'cm²',
@@ -32,7 +47,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqcm', 'cm^2', 'cm²'],
     },
     mm2: {
-      ratio: 1e-6,
+      ratio: SQUARE_MILLIMETER_TO_SQUARE_METER,
       name: 'square millimeter',
       plural: 'square millimeters',
       symbol: 'mm²',
@@ -40,7 +55,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqmm', 'mm^2', 'mm²'],
     },
     km2: {
-      ratio: 1e6,
+      ratio: SQUARE_KILOMETER_TO_SQUARE_METER,
       name: 'square kilometer',
       plural: 'square kilometers',
       symbol: 'km²',
@@ -48,7 +63,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqkm', 'km^2', 'km²'],
     },
     ha: {
-      ratio: 10_000,
+      ratio: HECTARE_TO_SQUARE_METER,
       name: 'hectare',
       plural: 'hectares',
       symbol: 'ha',
@@ -56,7 +71,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['hectare', 'hectares'],
     },
     a: {
-      ratio: 100,
+      ratio: ARE_TO_SQUARE_METER,
       name: 'are',
       plural: 'ares',
       symbol: 'a',
@@ -64,7 +79,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['are', 'ares'],
     },
     in2: {
-      ratio: 0.00064516, // = 0.0254^2 exact
+      ratio: SQUARE_INCH_TO_SQUARE_METER,
       name: 'square inch',
       plural: 'square inches',
       symbol: 'in²',
@@ -72,7 +87,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqin', 'in^2', 'in²'],
     },
     ft2: {
-      ratio: 0.09290304, // = 0.3048^2 exact
+      ratio: SQUARE_FOOT_TO_SQUARE_METER,
       name: 'square foot',
       plural: 'square feet',
       symbol: 'ft²',
@@ -80,7 +95,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqft', 'ft^2', 'ft²'],
     },
     yd2: {
-      ratio: 0.83612736, // = 0.9144^2 exact
+      ratio: SQUARE_YARD_TO_SQUARE_METER,
       name: 'square yard',
       plural: 'square yards',
       symbol: 'yd²',
@@ -88,7 +103,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqyd', 'yd^2', 'yd²'],
     },
     mi2: {
-      ratio: 2_589_988.110336, // = 1609.344^2 exact
+      ratio: SQUARE_MILE_TO_SQUARE_METER,
       name: 'square mile',
       plural: 'square miles',
       symbol: 'mi²',
@@ -96,7 +111,7 @@ export const areaCategory: CategoryDef<'area'> = {
       aliases: ['sqmi', 'mi^2', 'mi²'],
     },
     acre: {
-      ratio: 4_046.8564224, // = 4840 * yd2 exact
+      ratio: ACRE_TO_SQUARE_METER,
       name: 'acre',
       plural: 'acres',
       symbol: 'ac',

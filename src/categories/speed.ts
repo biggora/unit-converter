@@ -1,11 +1,26 @@
 /**
  * Speed / velocity conversions (anchor: metre per second).
  *
+ * Numeric factors are exported as named constants in
+ * {@link ../constants/speed | src/constants/speed.ts} and re-exported below.
+ *
  * @module
  */
 
+import {
+  FOOT_PER_SECOND_TO_METER_PER_SECOND,
+  INCH_PER_SECOND_TO_METER_PER_SECOND,
+  KILOMETER_PER_HOUR_TO_METER_PER_SECOND,
+  KNOT_TO_METER_PER_SECOND,
+  MACH_TO_METER_PER_SECOND,
+  METER_PER_SECOND_TO_METER_PER_SECOND,
+  MILE_PER_HOUR_TO_METER_PER_SECOND,
+  SPEED_OF_LIGHT_TO_METER_PER_SECOND,
+} from '../constants';
 import type { CategoryDef } from '../core/types.js';
 import { makeCategory } from '../factories/make-category.js';
+
+export * from '../constants/speed.js';
 
 /** @internal */
 export const speedCategory: CategoryDef<'speed'> = {
@@ -13,7 +28,7 @@ export const speedCategory: CategoryDef<'speed'> = {
   anchor: 'm/s',
   units: {
     'm/s': {
-      ratio: 1,
+      ratio: METER_PER_SECOND_TO_METER_PER_SECOND,
       name: 'meter per second',
       plural: 'meters per second',
       symbol: 'm/s',
@@ -21,7 +36,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       aliases: ['mps', 'meterspersecond'],
     },
     'km/h': {
-      ratio: 1 / 3.6, // 1000 / 3600 = 5/18
+      ratio: KILOMETER_PER_HOUR_TO_METER_PER_SECOND,
       name: 'kilometer per hour',
       plural: 'kilometers per hour',
       symbol: 'km/h',
@@ -29,7 +44,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       aliases: ['kph', 'kmh', 'kmph'],
     },
     mph: {
-      ratio: 0.44704, // 1609.344 / 3600 exact
+      ratio: MILE_PER_HOUR_TO_METER_PER_SECOND,
       name: 'mile per hour',
       plural: 'miles per hour',
       symbol: 'mph',
@@ -37,7 +52,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       aliases: ['mileperhour', 'milesperhour'],
     },
     kn: {
-      ratio: 1852 / 3600, // nautical-mile / hour, exact ratio definition
+      ratio: KNOT_TO_METER_PER_SECOND,
       name: 'knot',
       plural: 'knots',
       symbol: 'kn',
@@ -45,7 +60,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       aliases: ['knot', 'knots', 'kt'],
     },
     'ft/s': {
-      ratio: 0.3048, // NIST B.8 exact
+      ratio: FOOT_PER_SECOND_TO_METER_PER_SECOND,
       name: 'foot per second',
       plural: 'feet per second',
       symbol: 'ft/s',
@@ -53,7 +68,7 @@ export const speedCategory: CategoryDef<'speed'> = {
       aliases: ['fps', 'ftps'],
     },
     'in/s': {
-      ratio: 0.0254, // NIST B.8 exact
+      ratio: INCH_PER_SECOND_TO_METER_PER_SECOND,
       name: 'inch per second',
       plural: 'inches per second',
       symbol: 'in/s',
@@ -61,14 +76,14 @@ export const speedCategory: CategoryDef<'speed'> = {
       aliases: ['ips', 'inps'],
     },
     mach: {
-      ratio: 340.29, // Mach 1 at 15 °C sea level (ISO 2533)
+      ratio: MACH_TO_METER_PER_SECOND,
       name: 'mach',
       symbol: 'Ma',
       system: 'metric',
       aliases: ['ma'],
     },
     c: {
-      ratio: 299_792_458, // speed of light in vacuum, exact (SI)
+      ratio: SPEED_OF_LIGHT_TO_METER_PER_SECOND,
       name: 'speed of light',
       symbol: 'c',
       system: 'metric',
