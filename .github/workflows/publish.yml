@@ -18,23 +18,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
+
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: npm
+          package-manager-cache: false
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
 
       - name: Run unit tests
-        run: npm test
+        run: pnpm test
 
       - name: Run high-severity audit
-        run: npm audit --audit-level=high
+        run: pnpm audit --audit-level=high
 
       - name: Build package
-        run: npm run build
+        run: pnpm build
 
       - name: Verify package contents
         run: |
@@ -45,3 +50,4 @@ jobs:
         run: |
           TAG_ARG=$(node -p "require('./package.json').version.includes('-') ? '--tag oidc-test' : ''")
           npm publish $TAG_ARG
+
